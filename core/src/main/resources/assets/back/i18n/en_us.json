@@ -1,0 +1,25 @@
+{
+    "back": {
+        "settings": {
+            "name": "Back",
+            "enabled": {
+                "name": "Enabled"
+            },
+            "backCommand": {
+                "name": "Toggle /back",
+                "description": "/back sends '/tp @p <x> <y> <z> <yaw> <pitch>' in the chat to teleport you."
+            },
+            "coordsCommand": {
+                "name": "Toggle /coords",
+                "description": "/coords sends you the coordinates where your last death point was."
+            }
+        },
+        "messages": {
+            "savedPoint": "Your death point was saved!",
+            "clickToTeleport": "Click to teleport to coordinates!",
+            "clickToShow": "Click to show coordinates",
+            "noSavedPoint": "There is no death point saved!",
+            "deathPoint": "Those are your deauth coordinates:\n%s\n%s\n%s\n%s\n%s"
+        }
+    }
+}
