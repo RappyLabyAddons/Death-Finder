@@ -21,7 +21,7 @@ public class BackCommand extends Command {
             return false;
 
         if(DeathFinderAddon.death == null) {
-            Util.msg("§c" + Util.getTranslation("back.messages.noSavedPoint"));
+            Util.msg("§c" + Util.getTranslation("deathfinder.messages.noSavedPoint"));
             return true;
         }
         Location death = DeathFinderAddon.death;

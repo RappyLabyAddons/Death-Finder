@@ -20,12 +20,12 @@ public class DeathEvent {
         TextComponent.Builder builder = TextComponent.builder();
         builder.append("§8»\n");
         builder.append(
-            DeathFinderAddon.prefix + "§a" + Util.getTranslation("back.messages.savedPoint") + "\n");
+            DeathFinderAddon.prefix + "§a" + Util.getTranslation("deathfinder.messages.savedPoint") + "\n");
         if(backCommand || coordsCommand) builder.append(DeathFinderAddon.prefix);
         if(backCommand) builder.append(
             TextComponent.builder()
                 .text("§8[§c§lTP§8]")
-                .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("back.messages.clickToTeleport")).build()))
+                .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("deathfinder.messages.clickToTeleport")).build()))
                 .clickEvent(ClickEvent.runCommand("/back"))
                 .build()
         );
@@ -33,7 +33,7 @@ public class DeathEvent {
         if(coordsCommand) builder.append(
             TextComponent.builder()
                 .text("§8[§b§lINFO§8]")
-                .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("back.messages.clickToShow")).build()))
+                .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("deathfinder.messages.clickToShow")).build()))
                 .clickEvent(ClickEvent.runCommand("/coords"))
                 .build()
         );

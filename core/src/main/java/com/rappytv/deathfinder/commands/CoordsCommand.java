@@ -21,12 +21,12 @@ public class CoordsCommand extends Command {
             return false;
 
         if(DeathFinderAddon.death == null) {
-            Util.msg("§c" + Util.getTranslation("back.messages.noSavedPoint"));
+            Util.msg("§c" + Util.getTranslation("deathfinder.messages.noSavedPoint"));
             return true;
         }
         Location death = DeathFinderAddon.death;
         Util.msg(
-            "§e" + Util.getTranslation("back.messages.deathPoint",
+            "§e" + Util.getTranslation("deathfinder.messages.deathPoint",
                 "§aX: §b" + String.format(java.util.Locale.US,"%.2f", death.getX()),
                     "§aY: §b" + String.format(java.util.Locale.US,"%.2f", death.getY()),
                     "§aZ: §b" + String.format(java.util.Locale.US,"%.2f", death.getZ()),
