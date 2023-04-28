@@ -2,16 +2,28 @@
     "back": {
         "settings": {
             "name": "Back",
+            "header": {
+                "general": {
+                    "name": "General"
+                },
+                "commands": {
+                    "name": "Commands"
+                }
+            },
             "enabled": {
                 "name": "Enabled"
             },
+            "saveRotation": {
+                "name": "Save head rotation",
+                "description": "If it should save the position you looked at when you died."
+            },
             "backCommand": {
                 "name": "Toggle /back",
-                "description": "/back sends '/tp @p <x> <y> <z> <yaw> <pitch>' in the chat to teleport you."
+                "description": "§b/back §fsends '§b/tp @p <x> <y> <z> <yaw> <pitch>§f' in the chat to teleport you."
             },
             "coordsCommand": {
                 "name": "Toggle /coords",
-                "description": "/coords sends you the coordinates where your last death point was."
+                "description": "§b/coords §fsends you the coordinates where your last death point was."
             }
         },
         "messages": {
@@ -19,7 +31,7 @@
             "clickToTeleport": "Click to teleport to coordinates!",
             "clickToShow": "Click to show coordinates",
             "noSavedPoint": "There is no death point saved!",
-            "deathPoint": "Those are your deauth coordinates:\n%s\n%s\n%s\n%s\n%s"
+            "deathPoint": "Those are your death coordinates:\n%s\n%s\n%s\n%s\n%s"
         }
     }
 }
