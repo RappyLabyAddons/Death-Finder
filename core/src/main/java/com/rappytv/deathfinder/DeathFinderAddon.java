@@ -9,7 +9,7 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
-    public final static String prefix = "§eBack §8» §7";
+    public final static String prefix = "§5§lDF §8» §7";
     public static Location death;
     private static DeathFinderAddon instance;
 
