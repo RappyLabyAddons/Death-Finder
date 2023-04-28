@@ -2,7 +2,8 @@ package com.rappytv.back.commands;
 
 import com.rappytv.back.BackAddon;
 import com.rappytv.back.BackConfig;
-import com.rappytv.back.Location;
+import com.rappytv.back.util.Location;
+import com.rappytv.back.util.Util;
 import net.labymod.api.client.chat.command.Command;
 
 public class CoordsCommand extends Command {
@@ -20,19 +21,18 @@ public class CoordsCommand extends Command {
             return false;
 
         if(BackAddon.death == null) {
-            displayMessage(BackAddon.prefix + "§c" + BackAddon.getTranslation("back.messages.noSavedPoint"));
+            Util.msg("§c" + Util.getTranslation("back.messages.noSavedPoint"));
             return true;
         }
         Location death = BackAddon.death;
-        displayMessage(
-            BackAddon.prefix +
-                BackAddon.getTranslation("back.messages.deathPoint",
-                    "§aX: §b" + death.getX(),
-                    "§aY: §b" + death.getY(),
-                    "§aZ: §b" + death.getZ(),
-                    "§aYaw: §b" + death.getYaw(),
-                    "§aPitch: §b" + death.getPitch()
-                )
+        Util.msg(
+            "§e" + Util.getTranslation("back.messages.deathPoint",
+                "§aX: §b" + String.format(java.util.Locale.US,"%.2f", death.getX()),
+                    "§aY: §b" + String.format(java.util.Locale.US,"%.2f", death.getY()),
+                    "§aZ: §b" + String.format(java.util.Locale.US,"%.2f", death.getZ()),
+                    "§aYaw: §b" + String.format(java.util.Locale.US,"%.2f", death.getYaw()),
+                    "§aPitch: §b" + String.format(java.util.Locale.US,"%.2f", death.getPitch())
+            )
         );
         return true;
     }
