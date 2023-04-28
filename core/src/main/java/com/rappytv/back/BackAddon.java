@@ -2,18 +2,21 @@ package com.rappytv.back;
 
 import com.rappytv.back.commands.BackCommand;
 import com.rappytv.back.commands.CoordsCommand;
+import com.rappytv.back.util.Location;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
-import net.labymod.api.util.I18n;
 
 @AddonMain
 public class BackAddon extends LabyAddon<BackConfig> {
 
-    public final static String prefix = "";
+    public final static String prefix = "§eBack §8» §7";
     public static Location death;
+    private static BackAddon instance;
 
     @Override
     protected void enable() {
+        instance = this; // some static abuse lol
+
         registerSettingCategory();
         registerCommand(new BackCommand(this));
         registerCommand(new CoordsCommand(this));
@@ -24,9 +27,7 @@ public class BackAddon extends LabyAddon<BackConfig> {
         return BackConfig.class;
     }
 
-    public static String getTranslation(String key, Object... args) {
-        if(!I18n.has(key))
-            return key;
-        return I18n.getTranslation(key, args);
+    public static BackAddon get() {
+        return instance;
     }
 }
