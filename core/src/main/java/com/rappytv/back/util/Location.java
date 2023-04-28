@@ -1,12 +1,12 @@
-package com.rappytv.back;
+package com.rappytv.back.util;
 
 public class Location {
 
-    public double x;
-    public double y;
-    public double z;
-    public float yaw;
-    public float pitch;
+    private double x;
+    private double y;
+    private double z;
+    private float yaw;
+    private float pitch;
 
     public Location(double x, double y, double z) {
         this.x = x;
@@ -38,5 +38,21 @@ public class Location {
     }
     public double getPitch() {
         return pitch;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+    public void setY(double y) {
+        this.y = y;
+    }
+    public void setZ(double z) {
+        this.z = z;
+    }
+    public void setYaw(float yaw) {
+        this.yaw = yaw;
+    }
+    public void setPitch(float pitch) {
+        this.pitch = pitch;
     }
 }
