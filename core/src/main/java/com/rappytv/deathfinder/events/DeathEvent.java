@@ -10,6 +10,7 @@ import net.labymod.api.client.component.event.HoverEvent;
 public class DeathEvent {
 
     public DeathEvent(Location location) {
+        if(!DeathFinderAddon.get().configuration().enabled().get()) return;
         boolean backCommand = DeathFinderAddon.get().configuration().backCommand().get();
         boolean coordsCommand = DeathFinderAddon.get().configuration().coordsCommand().get();
 
