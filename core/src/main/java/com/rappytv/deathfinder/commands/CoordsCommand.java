@@ -1,16 +1,16 @@
-package com.rappytv.back.commands;
+package com.rappytv.deathfinder.commands;
 
-import com.rappytv.back.BackAddon;
-import com.rappytv.back.BackConfig;
-import com.rappytv.back.util.Location;
-import com.rappytv.back.util.Util;
+import com.rappytv.deathfinder.DeathFinderAddon;
+import com.rappytv.deathfinder.DeathFinderConfig;
+import com.rappytv.deathfinder.util.Location;
+import com.rappytv.deathfinder.util.Util;
 import net.labymod.api.client.chat.command.Command;
 
 public class CoordsCommand extends Command {
 
-    private final BackConfig config;
+    private final DeathFinderConfig config;
 
-    public CoordsCommand(BackAddon addon) {
+    public CoordsCommand(DeathFinderAddon addon) {
         super("coords");
         this.config = addon.configuration();
     }
@@ -20,11 +20,11 @@ public class CoordsCommand extends Command {
         if(!config.coordsCommand().get())
             return false;
 
-        if(BackAddon.death == null) {
+        if(DeathFinderAddon.death == null) {
             Util.msg("§c" + Util.getTranslation("back.messages.noSavedPoint"));
             return true;
         }
-        Location death = BackAddon.death;
+        Location death = DeathFinderAddon.death;
         Util.msg(
             "§e" + Util.getTranslation("back.messages.deathPoint",
                 "§aX: §b" + String.format(java.util.Locale.US,"%.2f", death.getX()),

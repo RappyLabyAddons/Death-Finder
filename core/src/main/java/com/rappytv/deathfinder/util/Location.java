@@ -1,4 +1,4 @@
-package com.rappytv.back.util;
+package com.rappytv.deathfinder.util;
 
 public class Location {
 

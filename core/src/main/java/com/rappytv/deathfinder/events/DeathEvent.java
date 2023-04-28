@@ -1,8 +1,8 @@
-package com.rappytv.back.events;
+package com.rappytv.deathfinder.events;
 
-import com.rappytv.back.BackAddon;
-import com.rappytv.back.util.Location;
-import com.rappytv.back.util.Util;
+import com.rappytv.deathfinder.DeathFinderAddon;
+import com.rappytv.deathfinder.util.Location;
+import com.rappytv.deathfinder.util.Util;
 import net.labymod.api.client.component.TextComponent;
 import net.labymod.api.client.component.event.ClickEvent;
 import net.labymod.api.client.component.event.HoverEvent;
@@ -10,17 +10,18 @@ import net.labymod.api.client.component.event.HoverEvent;
 public class DeathEvent {
 
     public DeathEvent(Location location) {
-        boolean backCommand = BackAddon.get().configuration().backCommand().get();
-        boolean coordsCommand = BackAddon.get().configuration().coordsCommand().get();
+        boolean backCommand = DeathFinderAddon.get().configuration().backCommand().get();
+        boolean coordsCommand = DeathFinderAddon.get().configuration().coordsCommand().get();
 
-        BackAddon.death = location;
+        DeathFinderAddon.death = location;
 
         // Message
 
         TextComponent.Builder builder = TextComponent.builder();
         builder.append("§8»\n");
-        builder.append(BackAddon.prefix + "§a" + Util.getTranslation("back.messages.savedPoint") + "\n");
-        if(backCommand || coordsCommand) builder.append(BackAddon.prefix);
+        builder.append(
+            DeathFinderAddon.prefix + "§a" + Util.getTranslation("back.messages.savedPoint") + "\n");
+        if(backCommand || coordsCommand) builder.append(DeathFinderAddon.prefix);
         if(backCommand) builder.append(
             TextComponent.builder()
                 .text("§8[§c§lTP§8]")
@@ -37,6 +38,6 @@ public class DeathEvent {
                 .build()
         );
         builder.append((backCommand || coordsCommand ? "\n" : "") + "§8»");
-        BackAddon.get().displayMessage(builder.build());
+        DeathFinderAddon.get().displayMessage(builder.build());
     }
 }

@@ -1,4 +1,4 @@
-# Back
+# Death Finder
 <sub>This addon saves your last death point, so you can find your items again.</sub>
 
 ### 🔧 You can customize these Settings:
@@ -10,7 +10,7 @@
 ### 📦 Installation
 1. Press `Win` + `R`
 2. Paste this into the window that popped up: `%appdata%/.minecraft/LabyMod-neo/addons` and press enter (This path may change when lm4 gets released)
-3. It should open your Labymod addon directory; Paste the [Back.jar](https://github.com/RappyLabyAddons/Back/releases/download/v1.0.0/Back.jar) in there.
+3. It should open your Labymod addon directory; Paste the [Back.jar](https://github.com/RappyLabyAddons/Death-Finder/releases/download/v1.0.0/Death-Finder.jar) in there.
 4. Launch your Labymod client.
 
 ### ✨ Version Support
@@ -26,7 +26,7 @@
 | 1.16.5  |     ❌     |
 
 If you have any problems with the addon/have update ideas, feel free to
-- Open an Issue [here](https://github.com/RappyLabyAddons/Back/issues/new/choose)
+- Open an Issue [here](https://github.com/RappyLabyAddons/Death-Finder/issues/new/choose)
   or
 - Open a ticket on my [Discord Server](https://rappytv.com/server) in [this](https://discord.com/channels/815912035124248587/840285653946204181) channel
 

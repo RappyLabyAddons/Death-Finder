@@ -1,8 +1,8 @@
-package com.rappytv.back.v1_19_2.mixins;
+package com.rappytv.deathfinder.v1_19_3.mixins;
 
-import com.rappytv.back.BackAddon;
-import com.rappytv.back.events.DeathEvent;
-import com.rappytv.back.util.Location;
+import com.rappytv.deathfinder.DeathFinderAddon;
+import com.rappytv.deathfinder.events.DeathEvent;
+import com.rappytv.deathfinder.util.Location;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -19,7 +19,7 @@ public abstract class DeathEventMixin {
         if(event == GameEvent.ENTITY_DIE && entity.getType() == EntityType.PLAYER) {
             Location deathLocation = new Location(entity.getX(), entity.getY(), entity.getZ());
 
-            if(BackAddon.get().configuration().saveRotation().get()) {
+            if(DeathFinderAddon.get().configuration().saveRotation().get()) {
                 deathLocation.setYaw(entity.getXRot());
                 deathLocation.setPitch(entity.getYRot());
             }

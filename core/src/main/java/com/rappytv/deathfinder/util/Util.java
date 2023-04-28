@@ -1,8 +1,8 @@
-package com.rappytv.back.util;
+package com.rappytv.deathfinder.util;
 
-import static com.rappytv.back.BackAddon.prefix;
+import static com.rappytv.deathfinder.DeathFinderAddon.prefix;
 
-import com.rappytv.back.BackAddon;
+import com.rappytv.deathfinder.DeathFinderAddon;
 import net.labymod.api.client.component.TextComponent;
 import net.labymod.api.util.I18n;
 
@@ -23,6 +23,6 @@ public class Util {
         }
 
         component.append("§8»");
-        BackAddon.get().displayMessage(component.build());
+        DeathFinderAddon.get().displayMessage(component.build());
     }
 }

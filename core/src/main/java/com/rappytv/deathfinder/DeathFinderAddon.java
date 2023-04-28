@@ -1,17 +1,17 @@
-package com.rappytv.back;
+package com.rappytv.deathfinder;
 
-import com.rappytv.back.commands.BackCommand;
-import com.rappytv.back.commands.CoordsCommand;
-import com.rappytv.back.util.Location;
+import com.rappytv.deathfinder.commands.BackCommand;
+import com.rappytv.deathfinder.commands.CoordsCommand;
+import com.rappytv.deathfinder.util.Location;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
 @AddonMain
-public class BackAddon extends LabyAddon<BackConfig> {
+public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
     public final static String prefix = "§eBack §8» §7";
     public static Location death;
-    private static BackAddon instance;
+    private static DeathFinderAddon instance;
 
     @Override
     protected void enable() {
@@ -23,11 +23,11 @@ public class BackAddon extends LabyAddon<BackConfig> {
     }
 
     @Override
-    protected Class<? extends BackConfig> configurationClass() {
-        return BackConfig.class;
+    protected Class<? extends DeathFinderConfig> configurationClass() {
+        return DeathFinderConfig.class;
     }
 
-    public static BackAddon get() {
+    public static DeathFinderAddon get() {
         return instance;
     }
 }

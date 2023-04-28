@@ -14,10 +14,10 @@ tasks.withType<JavaCompile> {
 }
 
 labyMod {
-    defaultPackageName = "com.rappytv.back" //change this to your main package name (used by all modules)
+    defaultPackageName = "com.rappytv.deathfinder" //change this to your main package name (used by all modules)
     addonInfo {
-        namespace = "back"
-        displayName = "Back"
+        namespace = "deathfinder"
+        displayName = "Death Finder"
         author = "RappyTV#6969"
         description = "This addon saves your last death point, so you can find your items again."
         minecraftVersion = "1.17<1.19.4"
