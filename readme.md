@@ -23,7 +23,7 @@
 | 1.17.1  |     ✅     |
 | 1.16.5  |     ❌     |
 | 1.12.2  |     ❌     |
-| 1.16.5  |     ❌     |
+| 1.8.9   |     ❌     |
 
 If you have any problems with the addon/have update ideas, feel free to
 - Open an Issue [here](https://github.com/RappyLabyAddons/Death-Finder/issues/new/choose)
