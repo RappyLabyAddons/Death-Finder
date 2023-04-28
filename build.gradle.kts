@@ -20,7 +20,7 @@ labyMod {
         displayName = "Back"
         author = "RappyTV#6969"
         description = "This addon saves your last death point so you can find your items again."
-        minecraftVersion = "*"
+        minecraftVersion = "1.17<1.19.4"
         version = System.getenv().getOrDefault("VERSION", "1.0.0")
     }
 
