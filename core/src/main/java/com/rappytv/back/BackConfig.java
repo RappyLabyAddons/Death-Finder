@@ -9,8 +9,11 @@ import net.labymod.api.configuration.settings.annotation.SettingSection;
 @ConfigName("settings")
 public class BackConfig extends AddonConfig {
 
+    @SettingSection("general")
     @SwitchSetting
     private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
+    @SwitchSetting
+    private final ConfigProperty<Boolean> saveRotation = new ConfigProperty<>(false);
 
     @SettingSection("commands")
     @SwitchSetting
@@ -21,6 +24,9 @@ public class BackConfig extends AddonConfig {
     @Override
     public ConfigProperty<Boolean> enabled() {
         return enabled;
+    }
+    public ConfigProperty<Boolean> saveRotation() {
+        return saveRotation;
     }
 
     public ConfigProperty<Boolean> backCommand() {
