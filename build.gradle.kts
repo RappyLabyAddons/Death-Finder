@@ -19,7 +19,7 @@ labyMod {
         namespace = "back"
         displayName = "Back"
         author = "RappyTV#6969"
-        description = "Gives/teleports you to the exact coordinates where you died. Adds /back and /coords"
+        description = "This addon saves your last death point so you can find your items again."
         minecraftVersion = "*"
         version = System.getenv().getOrDefault("VERSION", "1.0.0")
     }
