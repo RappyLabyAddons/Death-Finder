@@ -10,7 +10,7 @@
 ### 📦 Installation
 1. Press `Win` + `R`
 2. Paste this into the window that popped up: `%appdata%/.minecraft/LabyMod-neo/addons` and press enter (This path may change when lm4 gets released)
-3. It should open your Labymod addon directory; Paste the [Death-Finder.jar](https://github.com/RappyLabyAddons/Death-Finder/releases/download/v1.0.0/Death-Finder.jar) in there.
+3. It should open your Labymod addon directory; Paste the [Death-Finder.jar](https://github.com/RappyLabyAddons/Death-Finder/releases/download/v0.1.0-alpha/Death-Finder.jar) in there.
 4. Launch your Labymod client.
 
 ### ✨ Version Support
