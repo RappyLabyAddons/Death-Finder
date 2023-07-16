@@ -1,4 +1,4 @@
-rootProject.name = "Death-Finder"
+rootProject.name = "deathfinder"
 
 pluginManagement {
     val labyGradlePluginVersion = "0.3.28"
