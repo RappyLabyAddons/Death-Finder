@@ -20,11 +20,11 @@ public class BackCommand extends Command {
         if(!config.backCommand().get())
             return false;
 
-        if(DeathFinderAddon.death == null) {
+        if(DeathFinderAddon.getDeathLocation() == null) {
             Util.msg("§c" + Util.getTranslation("deathfinder.messages.noSavedPoint"));
             return true;
         }
-        Location death = DeathFinderAddon.death;
+        Location death = DeathFinderAddon.getDeathLocation();
         sendMessage("/tp @p " + death.getX() + " " + death.getY() + " " + death.getZ() + " " + death.getYaw() + " " + death.getPitch());
         return true;
     }

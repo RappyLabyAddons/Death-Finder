@@ -3,6 +3,7 @@ package com.rappytv.deathfinder.events;
 import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.util.Location;
 import com.rappytv.deathfinder.util.Util;
+import net.labymod.api.Laby;
 import net.labymod.api.client.component.TextComponent;
 import net.labymod.api.client.component.event.ClickEvent;
 import net.labymod.api.client.component.event.HoverEvent;
@@ -14,7 +15,7 @@ public class DeathEvent {
         boolean backCommand = DeathFinderAddon.get().configuration().backCommand().get();
         boolean coordsCommand = DeathFinderAddon.get().configuration().coordsCommand().get();
 
-        DeathFinderAddon.death = location;
+        DeathFinderAddon.setDeathLocation(location);
 
         // Message
 
@@ -39,6 +40,6 @@ public class DeathEvent {
                 .build()
         );
         builder.append((backCommand || coordsCommand ? "\n" : "") + "§8»");
-        DeathFinderAddon.get().displayMessage(builder.build());
+        Laby.references().chatExecutor().displayClientMessage(builder.build());
     }
 }
