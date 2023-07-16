@@ -4,6 +4,7 @@ import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.DeathFinderConfig;
 import com.rappytv.deathfinder.util.Location;
 import com.rappytv.deathfinder.util.Util;
+import net.labymod.api.Laby;
 import net.labymod.api.client.chat.command.Command;
 
 public class BackCommand extends Command {
@@ -25,7 +26,10 @@ public class BackCommand extends Command {
             return true;
         }
         Location death = DeathFinderAddon.getDeathLocation();
-        sendMessage("/tp @p " + death.getX() + " " + death.getY() + " " + death.getZ() + " " + death.getYaw() + " " + death.getPitch());
+        Laby.references().chatExecutor().chat(
+            "/tp @p " + death.getX() + " " + death.getY() + " " + death.getZ() + " " + death.getYaw() + " " + death.getPitch(),
+            false
+        );
         return true;
     }
 }
