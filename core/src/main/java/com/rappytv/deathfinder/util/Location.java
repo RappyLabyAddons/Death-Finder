@@ -9,11 +9,7 @@ public class Location {
     private float pitch;
 
     public Location(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.yaw = 0f;
-        this.pitch = 0f;
+        this(x, y, z, 0f, 0f);
     }
 
     public Location(double x, double y, double z, float yaw, float pitch) {
@@ -54,5 +50,14 @@ public class Location {
     }
     public void setPitch(float pitch) {
         this.pitch = pitch;
+    }
+
+    public boolean equals(Location location) {
+        if(location == null) return false;
+        return this.x == location.x
+            && this.y == location.y
+            && this.z == location.z
+            && this.pitch == location.pitch
+            && this.yaw == location.yaw;
     }
 }
