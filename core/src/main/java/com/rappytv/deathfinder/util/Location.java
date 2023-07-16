@@ -9,11 +9,7 @@ public class Location {
     private float pitch;
 
     public Location(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.yaw = 0f;
-        this.pitch = 0f;
+        this(x, y, z, 0f, 0f);
     }
 
     public Location(double x, double y, double z, float yaw, float pitch) {
