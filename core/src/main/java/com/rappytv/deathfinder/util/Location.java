@@ -51,4 +51,13 @@ public class Location {
     public void setPitch(float pitch) {
         this.pitch = pitch;
     }
+
+    public boolean equals(Location location) {
+        if(location == null) return false;
+        return this.x == location.x
+            && this.y == location.y
+            && this.z == location.z
+            && this.pitch == location.pitch
+            && this.yaw == location.yaw;
+    }
 }
