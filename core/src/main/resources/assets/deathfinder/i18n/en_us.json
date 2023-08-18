@@ -31,7 +31,7 @@
             "clickToTeleport": "Click to teleport to coordinates!",
             "clickToShow": "Click to show coordinates",
             "noSavedPoint": "There is no death point saved!",
-            "deathPoint": "Those are your death coordinates:\n%s\n%s\n%s\n%s\n%s"
+            "deathPoint": "Those are your death coordinates:"
         }
     }
 }

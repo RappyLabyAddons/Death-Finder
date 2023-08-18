@@ -4,12 +4,19 @@ import com.rappytv.deathfinder.commands.BackCommand;
 import com.rappytv.deathfinder.commands.CoordsCommand;
 import com.rappytv.deathfinder.util.Location;
 import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.format.NamedTextColor;
+import net.labymod.api.client.component.format.Style;
+import net.labymod.api.client.component.format.TextDecoration;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
 @AddonMain
 public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
-    public final static String prefix = "§5§lDF §8» §7";
+    public final static Component prefix = Component
+        .text("DF ", Style.builder().color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD).build())
+        .append(Component.text("» ", NamedTextColor.DARK_GRAY));
+
     private static Location deathLocation;
     private static DeathFinderAddon instance;
 

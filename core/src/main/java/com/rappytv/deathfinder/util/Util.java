@@ -3,7 +3,8 @@ package com.rappytv.deathfinder.util;
 import static com.rappytv.deathfinder.DeathFinderAddon.prefix;
 
 import com.rappytv.deathfinder.DeathFinderAddon;
-import net.labymod.api.client.component.TextComponent;
+import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.util.I18n;
 
 public class Util {
@@ -13,16 +14,15 @@ public class Util {
         return I18n.getTranslation(key, args);
     }
 
-    public static void msg(String text) {
-        TextComponent.Builder component = TextComponent.builder();
-        String[] lines = text.split("\n");
-        component.append("§8»\n");
+    public static void msg(Component... lines) {
+        Component component = Component
+            .text("»\n", NamedTextColor.DARK_GRAY);
 
-        for(String line : lines) {
-            component.append(prefix + line + "\n");
+        for(Component line : lines) {
+            component.append(prefix).append(line).append(Component.text("\n"));
         }
 
-        component.append("§8»");
-        DeathFinderAddon.get().displayMessage(component.build());
+        component.append(Component.text("»", NamedTextColor.DARK_GRAY));
+        DeathFinderAddon.get().displayMessage(component);
     }
 }

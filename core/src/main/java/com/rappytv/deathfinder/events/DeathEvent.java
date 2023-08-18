@@ -4,9 +4,13 @@ import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.util.Location;
 import com.rappytv.deathfinder.util.Util;
 import net.labymod.api.Laby;
+import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.TextComponent;
 import net.labymod.api.client.component.event.ClickEvent;
 import net.labymod.api.client.component.event.HoverEvent;
+import net.labymod.api.client.component.format.NamedTextColor;
+import net.labymod.api.client.component.format.Style;
+import net.labymod.api.client.component.format.TextDecoration;
 
 public class DeathEvent {
 
@@ -19,27 +23,29 @@ public class DeathEvent {
 
         // Message
 
-        TextComponent.Builder builder = TextComponent.builder();
-        builder.append("§8»\n");
-        builder.append(
-            DeathFinderAddon.prefix + "§a" + Util.getTranslation("deathfinder.messages.savedPoint") + "\n");
+        Component builder = Component
+            .text("»\n", NamedTextColor.DARK_GRAY)
+            .append(DeathFinderAddon.prefix)
+            .append(Component.translatable("deathfinder.messages.savedPoint", NamedTextColor.GREEN))
+            .append(Component.text("\n"));
+
         if(backCommand || coordsCommand) builder.append(DeathFinderAddon.prefix);
         if(backCommand) builder.append(
-            TextComponent.builder()
-                .text("§8[§c§lTP§8]")
+            Component
+                .text("[", NamedTextColor.DARK_GRAY)
+                .append(Component.text("TP", Style.builder().color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build()))
+                .append(Component.text("]", NamedTextColor.DARK_GRAY))
                 .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("deathfinder.messages.clickToTeleport")).build()))
                 .clickEvent(ClickEvent.runCommand("/back"))
-                .build()
         );
-        if(backCommand && coordsCommand) builder.append(TextComponent.builder().text(" §7| ").build());
+        if(backCommand && coordsCommand) builder.append(Component.text(" §7| "));
         if(coordsCommand) builder.append(
-            TextComponent.builder()
+            Component
                 .text("§8[§b§lINFO§8]")
                 .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("deathfinder.messages.clickToShow")).build()))
                 .clickEvent(ClickEvent.runCommand("/coords"))
-                .build()
         );
-        builder.append((backCommand || coordsCommand ? "\n" : "") + "§8»");
-        Laby.references().chatExecutor().displayClientMessage(builder.build());
+        builder.append(Component.text((backCommand || coordsCommand ? "\n" : "") + "§8»", NamedTextColor.DARK_GRAY));
+        Laby.references().chatExecutor().displayClientMessage(builder);
     }
 }

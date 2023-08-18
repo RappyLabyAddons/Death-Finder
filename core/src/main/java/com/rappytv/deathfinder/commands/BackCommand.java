@@ -6,6 +6,8 @@ import com.rappytv.deathfinder.util.Location;
 import com.rappytv.deathfinder.util.Util;
 import net.labymod.api.Laby;
 import net.labymod.api.client.chat.command.Command;
+import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.format.NamedTextColor;
 
 public class BackCommand extends Command {
 
@@ -22,7 +24,7 @@ public class BackCommand extends Command {
             return false;
 
         if(DeathFinderAddon.getDeathLocation() == null) {
-            Util.msg("§c" + Util.getTranslation("deathfinder.messages.noSavedPoint"));
+            Util.msg(Component.translatable("deathfinder.messages.noSavedPoint", NamedTextColor.RED));
             return true;
         }
         Location death = DeathFinderAddon.getDeathLocation();
