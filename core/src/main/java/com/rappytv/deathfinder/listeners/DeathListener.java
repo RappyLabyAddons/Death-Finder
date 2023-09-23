@@ -2,7 +2,7 @@ package com.rappytv.deathfinder.listeners;
 
 import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.events.DeathEvent;
-import net.labymod.api.Laby;
+import com.rappytv.deathfinder.util.Util;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.event.ClickEvent;
 import net.labymod.api.client.component.event.HoverEvent;
@@ -27,16 +27,14 @@ public class DeathListener {
 
         DeathFinderAddon.setDeathLocation(event.location());
 
-        // Message
+        Component info = Component.translatable("deathfinder.messages.savedPoint", NamedTextColor.GREEN);
+        if(!backCommand && !coordsCommand) {
+            Util.msg(info);
+            return;
+        }
 
-        Component component = Component
-            .text("»\n", NamedTextColor.DARK_GRAY)
-            .append(DeathFinderAddon.prefix)
-            .append(Component.translatable("deathfinder.messages.savedPoint", NamedTextColor.GREEN))
-            .append(Component.text("\n"));
-
-        if(backCommand || coordsCommand) component.append(DeathFinderAddon.prefix);
-        if(backCommand) component.append(
+        Component interactable = Component.empty();
+        if(backCommand) interactable.append(
             Component
                 .text("[", NamedTextColor.DARK_GRAY)
                 .append(Component.text("TP", Style.builder().color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build()))
@@ -44,8 +42,8 @@ public class DeathListener {
                 .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.messages.clickToTeleport", NamedTextColor.GREEN)))
                 .clickEvent(ClickEvent.runCommand("/back"))
         );
-        if(backCommand && coordsCommand) component.append(Component.text(" | ", NamedTextColor.DARK_GRAY));
-        if(coordsCommand) component.append(
+        if(backCommand && coordsCommand) interactable.append(Component.text(" | ", NamedTextColor.DARK_GRAY));
+        if(coordsCommand) interactable.append(
             Component
                 .text("[", NamedTextColor.DARK_GRAY)
                 .append(Component.text("INFOS", Style.builder().color(NamedTextColor.AQUA).decorate(TextDecoration.BOLD).build()))
@@ -53,9 +51,7 @@ public class DeathListener {
                 .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.messages.clickToShow", NamedTextColor.GREEN)))
                 .clickEvent(ClickEvent.runCommand("/coords"))
         );
-        component.append(Component.text((backCommand || coordsCommand ? "\n" : "") + "»", NamedTextColor.DARK_GRAY));
-        Laby.references().chatExecutor().displayClientMessage(component);
-        System.out.println(component);
+        Util.msg(info, interactable);
     }
 
 }
