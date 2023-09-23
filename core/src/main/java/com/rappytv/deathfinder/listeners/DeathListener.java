@@ -31,31 +31,33 @@ public class DeathListener {
 
         // Message
 
-        Component builder = Component
+        Component component = Component
             .text("»\n", NamedTextColor.DARK_GRAY)
             .append(DeathFinderAddon.prefix)
             .append(Component.translatable("deathfinder.messages.savedPoint", NamedTextColor.GREEN))
             .append(Component.text("\n"));
 
-        if(backCommand || coordsCommand) builder.append(DeathFinderAddon.prefix);
-        if(backCommand) builder.append(
+        if(backCommand || coordsCommand) component.append(DeathFinderAddon.prefix);
+        if(backCommand) component.append(
             Component
                 .text("[", NamedTextColor.DARK_GRAY)
-                .append(Component.text("TP", Style.builder().color(NamedTextColor.RED).decorate(
-                    TextDecoration.BOLD).build()))
+                .append(Component.text("TP", Style.builder().color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build()))
                 .append(Component.text("]", NamedTextColor.DARK_GRAY))
-                .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("deathfinder.messages.clickToTeleport")).build()))
+                .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.messages.clickToTeleport", NamedTextColor.GREEN)))
                 .clickEvent(ClickEvent.runCommand("/back"))
         );
-        if(backCommand && coordsCommand) builder.append(Component.text(" §7| "));
-        if(coordsCommand) builder.append(
+        if(backCommand && coordsCommand) component.append(Component.text(" | ", NamedTextColor.DARK_GRAY));
+        if(coordsCommand) component.append(
             Component
-                .text("§8[§b§lINFO§8]")
-                .hoverEvent(HoverEvent.showText(TextComponent.builder().text("§a" + Util.getTranslation("deathfinder.messages.clickToShow")).build()))
+                .text("[", NamedTextColor.DARK_GRAY)
+                .append(Component.text("INFOS", Style.builder().color(NamedTextColor.AQUA).decorate(TextDecoration.BOLD).build()))
+                .append(Component.text("]", NamedTextColor.DARK_GRAY))
+                .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.messages.clickToShow", NamedTextColor.GREEN)))
                 .clickEvent(ClickEvent.runCommand("/coords"))
         );
-        builder.append(Component.text((backCommand || coordsCommand ? "\n" : "") + "§8»", NamedTextColor.DARK_GRAY));
-        Laby.references().chatExecutor().displayClientMessage(builder);
+        component.append(Component.text((backCommand || coordsCommand ? "\n" : "") + "»", NamedTextColor.DARK_GRAY));
+        Laby.references().chatExecutor().displayClientMessage(component);
+        System.out.println(component);
     }
 
 }
