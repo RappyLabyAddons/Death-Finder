@@ -28,8 +28,8 @@ public class DeathScreenMixin extends Screen {
         Location deathLocation = new Location(player.getX(), player.getY(), player.getZ());
 
         if(DeathFinderAddon.get().configuration().saveRotation().get()) {
-            deathLocation.setYaw(player.getXRot());
-            deathLocation.setPitch(player.getYRot());
+            deathLocation.setYaw(player.getYRot());
+            deathLocation.setPitch(player.getXRot());
         }
         if(deathLocation.equals(DeathFinderAddon.getDeathLocation())) return;
 
