@@ -1,4 +1,4 @@
-package com.rappytv.deathfinder.v1_17_1.mixins;
+package com.rappytv.deathfinder.v1_20_2.mixins;
 
 import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.events.DeathEvent;
@@ -22,7 +22,9 @@ public class DeathScreenMixin extends Screen {
 
     @Inject(method = "init", at = @At("TAIL"))
     public void onDeathScreen(CallbackInfo ci) {
+        System.out.println("\n\n1\n\n");
         if(this.minecraft == null || this.minecraft.player == null) return;
+        System.out.println("\n\n2\n\n");
 
         LocalPlayer player = this.minecraft.player;
         Location deathLocation = new Location(player.getX(), player.getY(), player.getZ());
@@ -30,8 +32,10 @@ public class DeathScreenMixin extends Screen {
         if(DeathFinderAddon.get().configuration().saveRotation().get()) {
             deathLocation.setYaw(player.getXRot());
             deathLocation.setPitch(player.getYRot());
+            System.out.println("\n\n3\n\n");
         }
         if(deathLocation.equals(DeathFinderAddon.getDeathLocation())) return;
+        System.out.println("\n\n4\n\n");
 
         Laby.fireEvent(new DeathEvent(deathLocation));
     }

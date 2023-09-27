@@ -3,6 +3,7 @@ package com.rappytv.deathfinder.v1_8_9.mixins;
 import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.events.DeathEvent;
 import com.rappytv.deathfinder.util.Location;
+import net.labymod.api.Laby;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiScreen;
@@ -27,6 +28,6 @@ public class DeathScreenMixin extends GuiScreen {
         }
         if(deathLocation.equals(DeathFinderAddon.getDeathLocation())) return;
 
-        new DeathEvent(deathLocation);
+        Laby.fireEvent(new DeathEvent(deathLocation));
     }
 }

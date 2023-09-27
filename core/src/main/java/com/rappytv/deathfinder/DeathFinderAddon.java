@@ -2,6 +2,7 @@ package com.rappytv.deathfinder;
 
 import com.rappytv.deathfinder.commands.BackCommand;
 import com.rappytv.deathfinder.commands.CoordsCommand;
+import com.rappytv.deathfinder.listeners.DeathListener;
 import com.rappytv.deathfinder.util.Location;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.component.Component;
@@ -13,8 +14,8 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
-    public final static Component prefix = Component
-        .text("DF ", Style.builder().color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD).build())
+    public final static Component prefix = Component.empty()
+        .append(Component.text("DF ", Style.builder().color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD).build()))
         .append(Component.text("» ", NamedTextColor.DARK_GRAY));
 
     private static Location deathLocation;
@@ -27,6 +28,7 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
         registerSettingCategory();
         registerCommand(new BackCommand(this));
         registerCommand(new CoordsCommand(this));
+        registerListener(new DeathListener(this));
     }
 
     @Override
