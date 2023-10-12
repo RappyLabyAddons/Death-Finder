@@ -1,4 +1,5 @@
 # Death Finder
+![Downloads](https://labybadges-delta.vercel.app/api/downloads/deathfinder/formatted)<br>
 <sub>This addon saves your last death point, so you can find your items again.</sub>
 
 ### 📦 Installation
