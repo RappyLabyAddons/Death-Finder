@@ -20,8 +20,8 @@ labyMod {
         displayName = "Death Finder"
         author = "RappyTV"
         description = "This addon saves your last death point, so you can find your items again."
-        minecraftVersion = "1.8<1.20.3"
-        version = System.getenv().getOrDefault("VERSION", "1.0.5")
+        minecraftVersion = "1.8<1.20.4"
+        version = System.getenv().getOrDefault("VERSION", "1.0.6")
     }
 
     minecraft {
@@ -36,7 +36,7 @@ labyMod {
                 "1.19.4",
                 "1.20.1",
                 "1.20.2",
-                "1.20.3"
+                "1.20.4"
         ) { version, provider ->
             configureRun(provider, version)
         }
