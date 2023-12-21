@@ -39,7 +39,7 @@ public class DeathListener {
                 .text("[", NamedTextColor.DARK_GRAY)
                 .append(Component.text("TP", Style.builder().color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build()))
                 .append(Component.text("]", NamedTextColor.DARK_GRAY))
-                .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.messages.clickToTeleport", NamedTextColor.GREEN)))
+                .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.hover.teleport", NamedTextColor.GREEN)))
                 .clickEvent(ClickEvent.runCommand("/back"))
         );
         if(backCommand && coordsCommand) interactable.append(Component.text(" | ", NamedTextColor.DARK_GRAY));
@@ -48,7 +48,7 @@ public class DeathListener {
                 .text("[", NamedTextColor.DARK_GRAY)
                 .append(Component.text("INFOS", Style.builder().color(NamedTextColor.AQUA).decorate(TextDecoration.BOLD).build()))
                 .append(Component.text("]", NamedTextColor.DARK_GRAY))
-                .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.messages.clickToShow", NamedTextColor.GREEN)))
+                .hoverEvent(HoverEvent.showText(Component.translatable("deathfinder.hover.show", NamedTextColor.GREEN)))
                 .clickEvent(ClickEvent.runCommand("/coords"))
         );
         Util.msg(info, interactable);

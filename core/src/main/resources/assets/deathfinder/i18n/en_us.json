@@ -28,10 +28,12 @@
         },
         "messages": {
             "savedPoint": "Your death point was saved!",
-            "clickToTeleport": "Click to teleport to coordinates!",
-            "clickToShow": "Click to show coordinates",
             "noSavedPoint": "There is no death point saved!",
             "deathPoint": "Those are your death coordinates:"
+        },
+        "hover": {
+            "teleport": "Click to teleport to coordinates!",
+            "show": "Click to show coordinates"
         }
     }
 }
