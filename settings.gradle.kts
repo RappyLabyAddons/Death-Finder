@@ -1,7 +1,7 @@
 rootProject.name = "deathfinder"
 
 pluginManagement {
-    val labyGradlePluginVersion = "0.3.38"
+    val labyGradlePluginVersion = "0.3.40"
     plugins {
         id("net.labymod.gradle") version (labyGradlePluginVersion)
     }
