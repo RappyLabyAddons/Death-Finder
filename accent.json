@@ -1,0 +1,11 @@
+{
+    "apiUrl": "https://translate.rappytv.com",
+    "files": [
+        {
+            "namePattern": "parentDirectory",
+            "format": "json",
+            "source": "core/src/main/resources/assets/eshare/i18n/%slug%.json",
+            "target": "core/src/main/resources/assets/eshare/i18n/%slug%.json"
+        }
+    ]
+}
