@@ -1,0 +1,39 @@
+{
+  "deathfinder": {
+    "settings": {
+      "name": "Death Finder",
+      "header": {
+        "general": {
+          "name": "Allgemein"
+        },
+        "commands": {
+          "name": "Befehle"
+        }
+      },
+      "enabled": {
+        "name": "Aktiviert"
+      },
+      "saveRotation": {
+        "name": "Kopf-Rotation speichern",
+        "description": "Ob gespeichert werden soll, in welche Richtung du geschaut hast, als du gestorben bist."
+      },
+      "backCommand": {
+        "name": "/back An-/Ausmachen",
+        "description": "§b/back §fsendet '§b/tp @p <x> <y> <z> <yaw> <pitch>§f' in den Chat um dich zu teleportieren."
+      },
+      "coordsCommand": {
+        "name": "/coords An-/Ausmachen",
+        "description": "§b/coords §fsendet dir die Koordinaten von deinem letzten Todespunkt."
+      }
+    },
+    "messages": {
+      "savedPoint": "Dein Todesort wurde gespeichert!",
+      "noSavedPoint": "Es wurde kein Todesort gespeichert!",
+      "deathPoint": "Das sind die Koordinaten von deinem Todesort:"
+    },
+    "hover": {
+      "teleport": "Klicke, um dich zu den Koordinaten zu teleportieren",
+      "show": "Klicke, um die Koordinaten anzuzeigen"
+    }
+  }
+}
