@@ -1,13 +1,11 @@
 package com.rappytv.deathfinder;
 
-import com.rappytv.deathfinder.commands.BackCommand;
-import com.rappytv.deathfinder.commands.CoordsCommand;
+import com.rappytv.deathfinder.commands.DeathFinderCommand;
 import com.rappytv.deathfinder.listeners.DeathListener;
-import com.rappytv.deathfinder.util.Location;
+import com.rappytv.deathfinder.util.DeathLocation;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
-import net.labymod.api.client.component.format.Style;
 import net.labymod.api.client.component.format.TextDecoration;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
@@ -15,19 +13,15 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
     public final static Component prefix = Component.empty()
-        .append(Component.text("DF ", Style.builder().color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD).build()))
+        .append(Component.text("DF ").color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD))
         .append(Component.text("» ", NamedTextColor.DARK_GRAY));
 
-    private static Location deathLocation;
-    private static DeathFinderAddon instance;
+    private static DeathLocation deathLocation;
 
     @Override
     protected void enable() {
-        instance = this; // some static abuse lol
-
         registerSettingCategory();
-        registerCommand(new BackCommand(this));
-        registerCommand(new CoordsCommand(this));
+        registerCommand(new DeathFinderCommand());
         registerListener(new DeathListener(this));
     }
 
@@ -36,15 +30,11 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
         return DeathFinderConfig.class;
     }
 
-    public static DeathFinderAddon get() {
-        return instance;
-    }
-
-    public static void setDeathLocation(Location value) {
+    public static void setDeathLocation(DeathLocation value) {
         deathLocation = value;
     }
 
-    public static Location getDeathLocation() {
+    public static DeathLocation getDeathLocation() {
         return deathLocation;
     }
 }
