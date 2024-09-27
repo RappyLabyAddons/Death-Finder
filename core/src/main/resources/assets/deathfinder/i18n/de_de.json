@@ -1,39 +1,26 @@
 {
-  "deathfinder": {
-    "settings": {
-      "name": "Death Finder",
-      "header": {
-        "general": {
-          "name": "Allgemein"
+    "deathfinder": {
+        "settings": {
+            "enabled": {
+                "name": "Aktiviert"
+            }
         },
-        "commands": {
-          "name": "Befehle"
+        "command": {
+            "usage": "Nutzung: %s",
+            "noSavedPoint": "Es wurde kein Todesort gespeichert!",
+            "coords": {
+                "success": "Das sind die Koordinaten von deinem Todesort:"
+            },
+            "waypoint": {
+                "notEnabled": "Das Waypoints addon ist nicht aktiviert!",
+                "success": "Wegpunkt erfolgreich erstellt!"
+            }
+        },
+        "onDeath": "Dein Todesort wurde gespeichert!",
+        "hover": {
+            "teleport": "Klicke, um dich zu den Koordinaten zu teleportieren",
+            "show": "Klicke, um die Koordinaten anzuzeigen",
+            "waypoint": "Klicke, um einen Wegpunkt zu erstellen"
         }
-      },
-      "enabled": {
-        "name": "Aktiviert"
-      },
-      "saveRotation": {
-        "name": "Kopf-Rotation speichern",
-        "description": "Ob gespeichert werden soll, in welche Richtung du geschaut hast, als du gestorben bist."
-      },
-      "backCommand": {
-        "name": "/back An-/Ausmachen",
-        "description": "§b/back §fsendet '§b/tp @p <x> <y> <z> <yaw> <pitch>§f' in den Chat um dich zu teleportieren."
-      },
-      "coordsCommand": {
-        "name": "/coords An-/Ausmachen",
-        "description": "§b/coords §fsendet dir die Koordinaten von deinem letzten Todespunkt."
-      }
-    },
-    "messages": {
-      "savedPoint": "Dein Todesort wurde gespeichert!",
-      "noSavedPoint": "Es wurde kein Todesort gespeichert!",
-      "deathPoint": "Das sind die Koordinaten von deinem Todesort:"
-    },
-    "hover": {
-      "teleport": "Klicke, um dich zu den Koordinaten zu teleportieren",
-      "show": "Klicke, um die Koordinaten anzuzeigen"
     }
-  }
 }
