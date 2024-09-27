@@ -6,7 +6,7 @@ plugins {
 val versions = providers.gradleProperty("net.labymod.minecraft-versions").get().split(";")
 
 group = "org.example"
-version = providers.environmentVariable("VERSION").getOrElse("1.0.0")
+version = providers.environmentVariable("VERSION").getOrElse("1.1.0")
 
 labyMod {
     defaultPackageName = "com.rappytv.deathfinder" //change this to your main package name (used by all modules)
@@ -15,8 +15,8 @@ labyMod {
         displayName = "Death Finder"
         author = "RappyTV"
         description = "This addon saves your last death point, so you can find your items again."
-        minecraftVersion = "1.8<1.21"
-        version = System.getenv().getOrDefault("VERSION", "1.0.8")
+        minecraftVersion = "1.8<1.21.1"
+        version = rootProject.version.toString()
 
         addon("labyswaypoints", true)
     }
