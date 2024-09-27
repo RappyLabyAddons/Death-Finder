@@ -137,11 +137,8 @@ public class DeathFinderCommand extends Command {
 
     private static class WaypointCommand extends SubCommand {
 
-        private final WaypointService waypointService;
-
         public WaypointCommand() {
             super("waypoint");
-            this.waypointService = Waypoints.getReferences().waypointService();
         }
 
         @Override
@@ -166,20 +163,23 @@ public class DeathFinderCommand extends Command {
                             NamedTextColor.RED
                         ))
                 );
+                return true;
             }
+            WaypointService service = Waypoints.getReferences().waypointService();
             DeathLocation death = DeathFinderAddon.getDeathLocation();
-            this.waypointService.addWaypoint(new WaypointMeta(
+            service.addWaypoint(new WaypointMeta(
                 Component.text("Death location"),
-                Color.of("5e17eb"),
+                Color.of("#5e17eb"),
                 WaypointType.PERMANENT,
                 new FloatVector3((float) death.getX(), (float) death.getY(), (float) death.getZ()),
                 true,
-                this.waypointService.actualWorld(),
-                this.waypointService.actualServer(),
-                this.waypointService.actualDimension() != null
-                    ? this.waypointService.actualDimension()
+                service.actualWorld(),
+                service.actualServer(),
+                service.actualDimension() != null
+                    ? service.actualDimension()
                     : "labymod:unknown"
             ));
+            service.refreshWaypoints();
             displayMessage(
                 Component.empty()
                     .append(DeathFinderAddon.prefix)
