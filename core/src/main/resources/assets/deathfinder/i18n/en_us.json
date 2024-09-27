@@ -1,39 +1,26 @@
 {
-  "deathfinder": {
-    "settings": {
-      "name": "Death Finder",
-      "header": {
-        "general": {
-          "name": "General"
+    "deathfinder": {
+        "settings": {
+            "enabled": {
+                "name": "Enabled"
+            }
         },
-        "commands": {
-          "name": "Commands"
+        "command": {
+            "usage": "Usage: %s",
+            "noSavedPoint": "There is no death point saved!",
+            "coords": {
+                "success": "Those are your death coordinates:"
+            },
+            "waypoint": {
+                "notEnabled": "The waypoints addon is not enabled!",
+                "success": "Successfully created waypoint!"
+            }
+        },
+        "onDeath": "Your death point was saved!",
+        "hover": {
+            "teleport": "Click to teleport to coordinates!",
+            "show": "Click to show coordinates",
+            "waypoint": "Click to create a waypoint"
         }
-      },
-      "enabled": {
-        "name": "Enabled"
-      },
-      "saveRotation": {
-        "name": "Save head rotation",
-        "description": "If it should save the position you looked at when you died."
-      },
-      "backCommand": {
-        "name": "Toggle /back",
-        "description": "§b/back §fsends '§b/tp @p <x> <y> <z> <yaw> <pitch>§f' in the chat to teleport you."
-      },
-      "coordsCommand": {
-        "name": "Toggle /coords",
-        "description": "§b/coords §fsends you the coordinates where your last death point was."
-      }
-    },
-    "messages": {
-      "savedPoint": "Your death point was saved!",
-      "noSavedPoint": "There is no death point saved!",
-      "deathPoint": "Those are your death coordinates:"
-    },
-    "hover": {
-      "teleport": "Click to teleport to coordinates!",
-      "show": "Click to show coordinates"
     }
-  }
 }

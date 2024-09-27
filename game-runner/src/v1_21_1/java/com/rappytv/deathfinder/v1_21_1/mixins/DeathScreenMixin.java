@@ -1,4 +1,4 @@
-package com.rappytv.deathfinder.v1_19_2.mixins;
+package com.rappytv.deathfinder.v1_21_1.mixins;
 
 import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.events.DeathEvent;
