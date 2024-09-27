@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(GuiGameOver.class)
 public class DeathScreenMixin extends GuiScreen {
 
-    @Inject(method = "initGui", at = @At("TAIL"))
+    @Inject(method = "initGui", at = @At("HEAD"))
     public void onDeathScreen(CallbackInfo ci) {
         ClientPlayer player = Laby.labyAPI().minecraft().getClientPlayer();
         if(player == null) return;

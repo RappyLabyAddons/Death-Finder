@@ -21,7 +21,7 @@ public class DeathScreenMixin extends Screen {
         super(title);
     }
 
-    @Inject(method = "init", at = @At("TAIL"))
+    @Inject(method = "init", at = @At("HEAD"))
     public void onDeathScreen(CallbackInfo ci) {
         ClientPlayer player = Laby.labyAPI().minecraft().getClientPlayer();
         if(player == null) return;

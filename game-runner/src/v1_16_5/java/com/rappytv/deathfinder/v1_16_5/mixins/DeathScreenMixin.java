@@ -6,7 +6,6 @@ import com.rappytv.deathfinder.util.DeathLocation;
 import net.labymod.api.Laby;
 import net.labymod.api.client.entity.Entity;
 import net.labymod.api.client.entity.player.ClientPlayer;
-import net.labymod.api.client.world.ClientWorld;
 import net.minecraft.client.gui.screens.DeathScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -22,7 +21,7 @@ public class DeathScreenMixin extends Screen {
         super(title);
     }
 
-    @Inject(method = "init", at = @At("TAIL"))
+    @Inject(method = "init", at = @At("HEAD"))
     public void onDeathScreen(CallbackInfo ci) {
         ClientPlayer player = Laby.labyAPI().minecraft().getClientPlayer();
         if(player == null) return;
