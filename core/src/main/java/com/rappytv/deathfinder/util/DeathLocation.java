@@ -1,6 +1,6 @@
 package com.rappytv.deathfinder.util;
 
-public class Location {
+public class DeathLocation {
 
     private double x;
     private double y;
@@ -8,11 +8,11 @@ public class Location {
     private float yaw;
     private float pitch;
 
-    public Location(double x, double y, double z) {
+    public DeathLocation(double x, double y, double z) {
         this(x, y, z, 0f, 0f);
     }
 
-    public Location(double x, double y, double z, float yaw, float pitch) {
+    public DeathLocation(double x, double y, double z, float yaw, float pitch) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -52,7 +52,7 @@ public class Location {
         this.pitch = pitch;
     }
 
-    public boolean equals(Location location) {
+    public boolean equals(DeathLocation location) {
         if(location == null) return false;
         return this.x == location.x
             && this.y == location.y
