@@ -18,7 +18,7 @@
         },
         "onDeath": "Dein Todesort wurde gespeichert!",
         "hover": {
-            "teleport": "Klicke, um dich zu den Koordinaten zu teleportieren",
+            "teleport": "Klicke, um dich zu den Koordinaten zu teleportieren!",
             "show": "Klicke, um die Koordinaten anzuzeigen",
             "waypoint": "Klicke, um einen Wegpunkt zu erstellen"
         }
