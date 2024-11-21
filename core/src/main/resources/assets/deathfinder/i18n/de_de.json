@@ -12,7 +12,7 @@
                 "success": "Das sind die Koordinaten von deinem Todesort:"
             },
             "waypoint": {
-                "notEnabled": "Das Waypoints addon ist nicht aktiviert!",
+                "notEnabled": "Das Waypoints Addon ist nicht aktiviert!",
                 "success": "Wegpunkt erfolgreich erstellt!"
             }
         },
