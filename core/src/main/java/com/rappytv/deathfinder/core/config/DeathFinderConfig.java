@@ -39,12 +39,12 @@ public class DeathFinderConfig extends AddonConfig {
         return this.waypoints;
     }
 
-    public ConfigProperty<Boolean> autoHardcoreRespawn() {
-        return this.autoHardcoreRespawn;
-    }
-
     public ConfigProperty<Boolean> autoRespawn() {
         return this.autoRespawn;
+    }
+
+    public ConfigProperty<Boolean> autoHardcoreRespawn() {
+        return this.autoHardcoreRespawn;
     }
 
     public ConfigProperty<Integer> autoRespawnDelay() {
