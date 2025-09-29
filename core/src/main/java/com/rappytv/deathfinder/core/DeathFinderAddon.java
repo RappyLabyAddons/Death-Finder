@@ -12,6 +12,8 @@ import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.client.component.format.TextDecoration;
 import net.labymod.api.models.addon.annotation.AddonMain;
+import net.labymod.api.revision.SimpleRevision;
+import net.labymod.api.util.version.SemanticVersion;
 
 @AddonMain
 public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
@@ -20,6 +22,15 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
         .append(Component.text("DF ").color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD))
         .append(Component.text("» ", NamedTextColor.DARK_GRAY));
     private static ReferenceStorage referenceStorage;
+
+    @Override
+    protected void preConfigurationLoad() {
+        Laby.references().revisionRegistry().register(new SimpleRevision(
+            "deathfinder",
+            new SemanticVersion("1.1.1"),
+            "2025-09-29"
+        ));
+    }
 
     @Override
     protected void enable() {

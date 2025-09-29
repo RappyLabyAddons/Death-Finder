@@ -3,6 +3,7 @@ package com.rappytv.deathfinder.core.config;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SliderWidget.SliderSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
+import net.labymod.api.configuration.loader.annotation.IntroducedIn;
 import net.labymod.api.configuration.loader.annotation.ModRequirement;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 import net.labymod.api.configuration.loader.annotation.SpriteTexture;
@@ -17,20 +18,24 @@ public class DeathFinderConfig extends AddonConfig {
     @SwitchSetting(hotkey = true)
     private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
+    @IntroducedIn(namespace = "deathfinder", value = "1.1.1")
     @SpriteSlot(size = 64, y = 1, page = 1)
     @ModRequirement(namespace = "labyswaypoints")
     private final WaypointSubconfig waypoints = new WaypointSubconfig();
 
+    @IntroducedIn(namespace = "deathfinder", value = "1.1.1")
     @SpriteSlot(size = 64, page = 1)
     @SettingSection(value = "autoRespawn", center = true)
     @SwitchSetting
     private final ConfigProperty<Boolean> autoRespawn = new ConfigProperty<>(false);
 
+    @IntroducedIn(namespace = "deathfinder", value = "1.1.1")
     @SpriteSlot(x = 4)
     @SettingRequires("autoRespawn")
     @SwitchSetting
     private final ConfigProperty<Boolean> autoHardcoreRespawn = new ConfigProperty<>(true);
 
+    @IntroducedIn(namespace = "deathfinder", value = "1.1.1")
     @SpriteSlot(size = 64, x = 1, page = 1)
     @SettingRequires("autoRespawn")
     @SliderSetting(min = 0, max = 30)
