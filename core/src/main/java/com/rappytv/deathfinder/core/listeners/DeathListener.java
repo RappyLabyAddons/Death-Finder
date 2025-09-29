@@ -22,6 +22,7 @@ public class DeathListener {
     public void onDeath(DeathEvent event) {
         if(!this.addon.configuration().enabled().get()) return;
 
+        DeathFinderAddon.setDeathLocation(event.location());
         Laby.references().chatExecutor().displayClientMessage(
             Component.empty()
                 .append(DeathFinderAddon.prefix)

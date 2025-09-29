@@ -11,16 +11,16 @@ import net.labymod.api.client.chat.command.Command;
 import net.labymod.api.client.chat.command.SubCommand;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
-import net.labymod.api.util.Color;
+import java.text.SimpleDateFormat;
 
 public class DeathFinderCommand extends Command {
 
-    public DeathFinderCommand() {
+    public DeathFinderCommand(DeathFinderAddon addon) {
         super("deathfinder", "df");
 
         this.withSubCommand(new BackCommand());
         this.withSubCommand(new CoordsCommand());
-        this.withSubCommand(new WaypointCommand());
+        this.withSubCommand(new WaypointCommand(addon));
     }
 
     @Override
@@ -136,8 +136,13 @@ public class DeathFinderCommand extends Command {
 
     private static class WaypointCommand extends SubCommand {
 
-        public WaypointCommand() {
+        private final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        private final DeathFinderAddon addon;
+
+        public WaypointCommand(DeathFinderAddon addon) {
             super("waypoint");
+
+            this.addon = addon;
         }
 
         @Override
@@ -168,10 +173,10 @@ public class DeathFinderCommand extends Command {
             DeathLocation death = DeathFinderAddon.getDeathLocation();
             service.add(
                 WaypointBuilder.create()
-                    .title(Component.translatable("deathfinder.command.waypoint.title"))
-                    .type(WaypointType.ADDON_MANAGED)
+                    .title(Component.text(this.getWaypointName()))
+                    .type(this.getWaypointType())
                     .location(death.toDoubleVector3())
-                    .color(Color.of("#5e17eb"))
+                    .color(this.addon.configuration().waypoints().color().get())
                     .applyCurrentContext()
                     .dimension(death.getDimension())
                     .build()
@@ -186,6 +191,17 @@ public class DeathFinderCommand extends Command {
                     ))
             );
             return true;
+        }
+
+        private String getWaypointName() {
+            return this.addon.configuration().waypoints().title().get().replace(
+                "{date}",
+                this.format.format(DeathFinderAddon.getDeathLocation().getTimestamp())
+            );
+        }
+
+        private WaypointType getWaypointType() {
+            return WaypointType.valueOf(this.addon.configuration().waypoints().type().get().name());
         }
     }
 }

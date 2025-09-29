@@ -1,6 +1,7 @@
 package com.rappytv.deathfinder.core;
 
 import com.rappytv.deathfinder.core.commands.DeathFinderCommand;
+import com.rappytv.deathfinder.core.config.DeathFinderConfig;
 import com.rappytv.deathfinder.core.listeners.DeathListener;
 import com.rappytv.deathfinder.api.util.DeathLocation;
 import net.labymod.api.addon.LabyAddon;
@@ -21,7 +22,7 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
     @Override
     protected void enable() {
         this.registerSettingCategory();
-        this.registerCommand(new DeathFinderCommand());
+        this.registerCommand(new DeathFinderCommand(this));
         this.registerListener(new DeathListener(this));
     }
 

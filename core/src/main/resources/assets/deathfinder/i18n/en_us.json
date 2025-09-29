@@ -3,6 +3,29 @@
         "settings": {
             "enabled": {
                 "name": "Enabled"
+            },
+            "waypoints": {
+                "name": "Waypoint options",
+                "title": {
+                    "name": "Name",
+                    "description": "Death location waypoints will be created with this name.\nYou can use §b{date} §rto add the time you died to the name"
+                },
+                "type": {
+                    "name": "Waypoint duration",
+                    "description": "When the waypoints should expire",
+                    "entries": {
+                        "permanent": "Permanent",
+                        "serverSession": "Server session",
+                        "addonManaged": "Game session"
+                    }
+                },
+                "color": {
+                    "name": "Color",
+                    "description": "The beacon color of death waypoint"
+                }
+            },
+            "waypointName": {
+                "name": "Waypoint name"
             }
         },
         "command": {
@@ -14,7 +37,7 @@
             "waypoint": {
                 "notEnabled": "The waypoints addon is not enabled!",
                 "success": "Successfully created waypoint!",
-                "title": "Death location"
+                "title": ""
             }
         },
         "onDeath": "Your death point was saved!",

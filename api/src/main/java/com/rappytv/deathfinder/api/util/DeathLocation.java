@@ -14,6 +14,7 @@ public class DeathLocation {
     private final float yaw;
     private final float pitch;
     private final String dimension;
+    private final long diedAt;
 
     public DeathLocation(double x, double y, double z, @NotNull String dimension) {
         this(x, y, z, 0f, 0f, dimension);
@@ -31,6 +32,7 @@ public class DeathLocation {
         this.yaw = yaw;
         this.pitch = pitch;
         this.dimension = dimension;
+        this.diedAt = System.currentTimeMillis();
     }
 
     public double getX() {
@@ -56,6 +58,10 @@ public class DeathLocation {
     @NotNull
     public String getDimension() {
         return this.dimension;
+    }
+
+    public long getTimestamp() {
+        return this.diedAt;
     }
 
     public DoubleVector3 toDoubleVector3() {
