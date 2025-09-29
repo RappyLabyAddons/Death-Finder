@@ -11,6 +11,7 @@ import net.labymod.api.client.chat.command.Command;
 import net.labymod.api.client.chat.command.SubCommand;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 public class DeathFinderCommand extends Command {
@@ -77,6 +78,8 @@ public class DeathFinderCommand extends Command {
 
     private static class CoordsCommand extends SubCommand {
 
+        private final DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
         public CoordsCommand() {
             super("coords");
         }
@@ -128,7 +131,7 @@ public class DeathFinderCommand extends Command {
 
         private Component formatValue(double value) {
             return Component.text(
-                String.format(java.util.Locale.US,"%.2f", value),
+                this.decimalFormat.format(value),
                 NamedTextColor.AQUA
             );
         }

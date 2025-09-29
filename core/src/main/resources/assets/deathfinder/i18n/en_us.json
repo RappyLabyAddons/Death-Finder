@@ -45,6 +45,9 @@
             "teleport": "Click to teleport to coordinates!",
             "show": "Click to show coordinates",
             "waypoint": "Click to create a waypoint"
+        },
+        "placeholders": {
+            "death_location": "The location of the last death."
         }
     }
 }

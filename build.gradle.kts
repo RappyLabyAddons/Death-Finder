@@ -19,6 +19,7 @@ labyMod {
         version = rootProject.version.toString()
 
         addon("labyswaypoints", true)
+        addon("smartchat", true)
     }
 
     minecraft {
