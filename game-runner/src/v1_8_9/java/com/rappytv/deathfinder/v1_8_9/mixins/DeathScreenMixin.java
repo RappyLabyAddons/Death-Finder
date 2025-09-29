@@ -15,8 +15,8 @@ public class DeathScreenMixin extends GuiScreen {
 
     @Inject(method = "initGui", at = @At("HEAD"))
     public void onDeathScreen(CallbackInfo ci) {
-        DeathEvent event = new DeathEvent();
-        if(event.location().equals(DeathFinderAddon.getDeathLocation())) return;
+        DeathEvent event = new DeathEvent(this.mc.theWorld.getWorldInfo().isHardcoreModeEnabled());
+        if(event.location().equals(DeathFinderAddon.references().deathManager().getLocation())) return;
         Laby.fireEvent(event);
     }
 }

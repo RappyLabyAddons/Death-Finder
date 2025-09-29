@@ -21,7 +21,7 @@ public class DeathLocationPlaceholder extends SmartChatPlaceholder {
 
     @Override
     public @Nullable String parse() {
-        DeathLocation death = DeathFinderAddon.getDeathLocation();
+        DeathLocation death = DeathFinderAddon.references().deathManager().getLocation();
         if(death == null) {
             return null;
         }

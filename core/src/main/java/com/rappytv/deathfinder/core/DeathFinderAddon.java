@@ -1,6 +1,6 @@
 package com.rappytv.deathfinder.core;
 
-import com.rappytv.deathfinder.api.util.DeathLocation;
+import com.rappytv.deathfinder.api.generated.ReferenceStorage;
 import com.rappytv.deathfinder.core.commands.DeathFinderCommand;
 import com.rappytv.deathfinder.core.config.DeathFinderConfig;
 import com.rappytv.deathfinder.core.listeners.AddonEnableListener;
@@ -16,14 +16,15 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
-    public final static Component prefix = Component.empty()
+    private final static Component PREFIX = Component.empty()
         .append(Component.text("DF ").color(NamedTextColor.DARK_PURPLE).decorate(TextDecoration.BOLD))
         .append(Component.text("» ", NamedTextColor.DARK_GRAY));
-
-    private static DeathLocation deathLocation;
+    private static ReferenceStorage referenceStorage;
 
     @Override
     protected void enable() {
+        referenceStorage = this.referenceStorageAccessor();
+
         this.registerSettingCategory();
         this.registerCommand(new DeathFinderCommand(this));
         this.registerListener(new AddonEnableListener(this));
@@ -42,11 +43,11 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
         return DeathFinderConfig.class;
     }
 
-    public static void setDeathLocation(DeathLocation value) {
-        deathLocation = value;
+    public static Component prefix() {
+        return PREFIX.copy();
     }
 
-    public static DeathLocation getDeathLocation() {
-        return deathLocation;
+    public static ReferenceStorage references() {
+        return referenceStorage;
     }
 }

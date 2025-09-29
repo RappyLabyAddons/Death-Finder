@@ -1,8 +1,22 @@
 {
     "deathfinder": {
         "settings": {
+            "header": {
+                "autoRespawn": {
+                    "name": "Auto respawn"
+                }
+            },
             "enabled": {
                 "name": "Enabled"
+            },
+            "autoRespawn": {
+                "name": "Automatically respawn"
+            },
+            "autoHardcoreRespawn": {
+                "name": "Automatically respawn in hardcore"
+            },
+            "autoRespawnDelay": {
+                "name": "Auto respawn delay in seconds"
             },
             "waypoints": {
                 "name": "Waypoint options",
@@ -40,11 +54,18 @@
                 "title": ""
             }
         },
-        "onDeath": "Your death point was saved!",
-        "hover": {
-            "teleport": "Click to teleport to coordinates!",
-            "show": "Click to show coordinates",
-            "waypoint": "Click to create a waypoint"
+        "onDeath": {
+            "message": "Your death point was saved!",
+            "hover": {
+                "teleport": "Click to teleport to coordinates!",
+                "show": "Click to show coordinates",
+                "waypoint": "Click to create a waypoint"
+            },
+            "autoRespawn": {
+                "title": "Auto respawn enabled",
+                "description": "You will automatically respawn in %s seconds!",
+                "cancel": "Cancel"
+            }
         },
         "placeholders": {
             "death_location": "The location of the last death."

@@ -11,8 +11,10 @@ import java.util.Objects;
 public class DeathEvent implements Event {
 
     private final DeathLocation location;
+    private final boolean hardcore;
 
-    public DeathEvent() {
+    public DeathEvent(boolean hardcore) {
+        this.hardcore = hardcore;
         ClientPlayer player = Laby.labyAPI().minecraft().getClientPlayer();
         if(player == null) throw new NullPointerException("Player cannot be null");
 
@@ -30,5 +32,9 @@ public class DeathEvent implements Event {
     @NotNull
     public DeathLocation location() {
         return this.location;
+    }
+
+    public boolean isHardcore() {
+        return this.hardcore;
     }
 }
