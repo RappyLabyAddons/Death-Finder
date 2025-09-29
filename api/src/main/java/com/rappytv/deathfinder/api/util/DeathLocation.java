@@ -1,4 +1,4 @@
-package com.rappytv.deathfinder.util;
+package com.rappytv.deathfinder.api.util;
 
 public class DeathLocation {
 

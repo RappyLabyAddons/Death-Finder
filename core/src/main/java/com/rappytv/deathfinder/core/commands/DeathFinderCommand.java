@@ -1,7 +1,7 @@
-package com.rappytv.deathfinder.commands;
+package com.rappytv.deathfinder.core.commands;
 
-import com.rappytv.deathfinder.DeathFinderAddon;
-import com.rappytv.deathfinder.util.DeathLocation;
+import com.rappytv.deathfinder.core.DeathFinderAddon;
+import com.rappytv.deathfinder.api.util.DeathLocation;
 import net.labymod.addons.waypoints.WaypointService;
 import net.labymod.addons.waypoints.Waypoints;
 import net.labymod.addons.waypoints.waypoint.WaypointBuilder;

@@ -1,7 +1,7 @@
-package com.rappytv.deathfinder.listeners;
+package com.rappytv.deathfinder.core.listeners;
 
-import com.rappytv.deathfinder.DeathFinderAddon;
-import com.rappytv.deathfinder.events.DeathEvent;
+import com.rappytv.deathfinder.core.DeathFinderAddon;
+import com.rappytv.deathfinder.api.events.DeathEvent;
 import net.labymod.api.Laby;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.event.ClickEvent;

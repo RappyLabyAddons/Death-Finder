@@ -1,8 +1,8 @@
-package com.rappytv.deathfinder;
+package com.rappytv.deathfinder.core;
 
-import com.rappytv.deathfinder.commands.DeathFinderCommand;
-import com.rappytv.deathfinder.listeners.DeathListener;
-import com.rappytv.deathfinder.util.DeathLocation;
+import com.rappytv.deathfinder.core.commands.DeathFinderCommand;
+import com.rappytv.deathfinder.core.listeners.DeathListener;
+import com.rappytv.deathfinder.api.util.DeathLocation;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;

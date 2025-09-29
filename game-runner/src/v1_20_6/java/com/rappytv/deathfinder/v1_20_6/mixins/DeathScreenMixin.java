@@ -1,8 +1,8 @@
 package com.rappytv.deathfinder.v1_20_6.mixins;
 
-import com.rappytv.deathfinder.DeathFinderAddon;
-import com.rappytv.deathfinder.events.DeathEvent;
-import com.rappytv.deathfinder.util.DeathLocation;
+import com.rappytv.deathfinder.core.DeathFinderAddon;
+import com.rappytv.deathfinder.api.events.DeathEvent;
+import com.rappytv.deathfinder.api.util.DeathLocation;
 import net.labymod.api.Laby;
 import net.labymod.api.client.entity.Entity;
 import net.labymod.api.client.entity.player.ClientPlayer;

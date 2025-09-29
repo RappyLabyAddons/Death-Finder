@@ -1,6 +1,6 @@
-package com.rappytv.deathfinder.events;
+package com.rappytv.deathfinder.api.events;
 
-import com.rappytv.deathfinder.util.DeathLocation;
+import com.rappytv.deathfinder.api.util.DeathLocation;
 import net.labymod.api.event.Event;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
