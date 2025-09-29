@@ -28,7 +28,7 @@
                     "name": "Waypoint duration",
                     "description": "When the waypoints should expire",
                     "entries": {
-                        "permanent": "Permanent",
+                        "permanent": "Permanently",
                         "serverSession": "Server session",
                         "addonManaged": "Game session"
                     }
@@ -53,7 +53,7 @@
         "onDeath": {
             "message": "Your death point was saved!",
             "hover": {
-                "teleport": "Click to teleport to coordinates!",
+                "teleport": "Click to teleport to coordinates",
                 "show": "Click to show coordinates",
                 "waypoint": "Click to create a waypoint"
             },
