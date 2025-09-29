@@ -1,7 +1,7 @@
 package com.rappytv.deathfinder.core.listeners;
 
 import com.rappytv.deathfinder.core.DeathFinderAddon;
-import com.rappytv.deathfinder.api.events.DeathEvent;
+import com.rappytv.deathfinder.api.event.DeathEvent;
 import net.labymod.api.Laby;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.event.ClickEvent;
@@ -22,7 +22,6 @@ public class DeathListener {
     public void onDeath(DeathEvent event) {
         if(!this.addon.configuration().enabled().get()) return;
 
-        DeathFinderAddon.setDeathLocation(event.location());
         Laby.references().chatExecutor().displayClientMessage(
             Component.empty()
                 .append(DeathFinderAddon.prefix)

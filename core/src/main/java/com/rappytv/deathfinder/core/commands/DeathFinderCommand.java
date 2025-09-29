@@ -1,7 +1,7 @@
 package com.rappytv.deathfinder.core.commands;
 
-import com.rappytv.deathfinder.core.DeathFinderAddon;
 import com.rappytv.deathfinder.api.util.DeathLocation;
+import com.rappytv.deathfinder.core.DeathFinderAddon;
 import net.labymod.addons.waypoints.WaypointService;
 import net.labymod.addons.waypoints.Waypoints;
 import net.labymod.addons.waypoints.waypoint.WaypointBuilder;
@@ -12,7 +12,6 @@ import net.labymod.api.client.chat.command.SubCommand;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.util.Color;
-import net.labymod.api.util.math.vector.DoubleVector3;
 
 public class DeathFinderCommand extends Command {
 
@@ -171,10 +170,10 @@ public class DeathFinderCommand extends Command {
                 WaypointBuilder.create()
                     .title(Component.translatable("deathfinder.command.waypoint.title"))
                     .type(WaypointType.ADDON_MANAGED)
-                    .location(new DoubleVector3(death.getX(), death.getY(), death.getZ()))
+                    .location(death.toDoubleVector3())
                     .color(Color.of("#5e17eb"))
                     .applyCurrentContext()
-                    .currentDimension()
+                    .dimension(death.getDimension())
                     .build()
             );
             service.refresh();

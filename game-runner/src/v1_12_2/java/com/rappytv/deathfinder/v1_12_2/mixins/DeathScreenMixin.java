@@ -1,11 +1,8 @@
 package com.rappytv.deathfinder.v1_12_2.mixins;
 
+import com.rappytv.deathfinder.api.event.DeathEvent;
 import com.rappytv.deathfinder.core.DeathFinderAddon;
-import com.rappytv.deathfinder.api.events.DeathEvent;
-import com.rappytv.deathfinder.api.util.DeathLocation;
 import net.labymod.api.Laby;
-import net.labymod.api.client.entity.Entity;
-import net.labymod.api.client.entity.player.ClientPlayer;
 import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiScreen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,19 +15,8 @@ public class DeathScreenMixin extends GuiScreen {
 
     @Inject(method = "initGui", at = @At("HEAD"))
     public void onDeathScreen(CallbackInfo ci) {
-        ClientPlayer player = Laby.labyAPI().minecraft().getClientPlayer();
-        if(player == null) return;
-
-        DeathLocation deathLocation = new DeathLocation(
-            player.getPosX(),
-            player.getPosY(),
-            player.getPosZ(),
-            ((Entity) player).getRotationYaw(),
-            ((Entity) player).getRotationPitch()
-        );
-
-        if(deathLocation.equals(DeathFinderAddon.getDeathLocation())) return;
-
-        Laby.fireEvent(new DeathEvent(deathLocation));
+        DeathEvent event = new DeathEvent();
+        if(event.location().equals(DeathFinderAddon.getDeathLocation())) return;
+        Laby.fireEvent(event);
     }
 }
