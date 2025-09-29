@@ -31,10 +31,10 @@ public class DeathListener {
         DeathFinderAddon.references().deathManager().setLocation(event.location());
         Laby.references().chatExecutor().displayClientMessage(
             Component.empty()
-                .append(DeathFinderAddon.prefix)
+                .append(DeathFinderAddon.prefix())
                 .append(Component.translatable("deathfinder.onDeath.message", NamedTextColor.GREEN))
                 .append(Component.newline())
-                .append(DeathFinderAddon.prefix)
+                .append(DeathFinderAddon.prefix())
                 .append(
                     Component
                         .text("[", NamedTextColor.DARK_GRAY)
