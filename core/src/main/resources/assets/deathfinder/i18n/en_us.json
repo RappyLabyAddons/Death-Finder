@@ -13,7 +13,8 @@
             },
             "waypoint": {
                 "notEnabled": "The waypoints addon is not enabled!",
-                "success": "Successfully created waypoint!"
+                "success": "Successfully created waypoint!",
+                "title": "Death location"
             }
         },
         "onDeath": "Your death point was saved!",

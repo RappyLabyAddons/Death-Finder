@@ -4,7 +4,7 @@ import com.rappytv.deathfinder.DeathFinderAddon;
 import com.rappytv.deathfinder.util.DeathLocation;
 import net.labymod.addons.waypoints.WaypointService;
 import net.labymod.addons.waypoints.Waypoints;
-import net.labymod.addons.waypoints.waypoint.WaypointMeta;
+import net.labymod.addons.waypoints.waypoint.WaypointBuilder;
 import net.labymod.addons.waypoints.waypoint.WaypointType;
 import net.labymod.api.Laby;
 import net.labymod.api.client.chat.command.Command;
@@ -12,7 +12,7 @@ import net.labymod.api.client.chat.command.SubCommand;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.util.Color;
-import net.labymod.api.util.math.vector.FloatVector3;
+import net.labymod.api.util.math.vector.DoubleVector3;
 
 public class DeathFinderCommand extends Command {
 
@@ -165,21 +165,19 @@ public class DeathFinderCommand extends Command {
                 );
                 return true;
             }
-            WaypointService service = Waypoints.getReferences().waypointService();
+            WaypointService service = Waypoints.references().waypointService();
             DeathLocation death = DeathFinderAddon.getDeathLocation();
-            service.addWaypoint(new WaypointMeta(
-                Component.text("Death location"),
-                Color.of("#5e17eb"),
-                WaypointType.PERMANENT,
-                new FloatVector3((float) death.getX(), (float) death.getY(), (float) death.getZ()),
-                true,
-                service.actualWorld(),
-                service.actualServer(),
-                service.actualDimension() != null
-                    ? service.actualDimension()
-                    : "labymod:unknown"
-            ));
-            service.refreshWaypoints();
+            service.add(
+                WaypointBuilder.create()
+                    .title(Component.translatable("deathfinder.command.waypoint.title"))
+                    .type(WaypointType.ADDON_MANAGED)
+                    .location(new DoubleVector3(death.getX(), death.getY(), death.getZ()))
+                    .color(Color.of("#5e17eb"))
+                    .applyCurrentContext()
+                    .currentDimension()
+                    .build()
+            );
+            service.refresh();
             displayMessage(
                 Component.empty()
                     .append(DeathFinderAddon.prefix)
