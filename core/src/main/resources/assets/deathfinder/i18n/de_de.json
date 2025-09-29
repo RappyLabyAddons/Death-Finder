@@ -3,6 +3,40 @@
         "settings": {
             "enabled": {
                 "name": "Aktiviert"
+            },
+            "header": {
+                "autoRespawn": {
+                    "name": "Auto-Respawn"
+                }
+            },
+            "autoRespawn": {
+                "name": "Automatisch respawnen"
+            },
+            "autoHardcoreRespawn": {
+                "name": "In Hardcore auch automatisch respawnen"
+            },
+            "autoRespawnDelay": {
+                "name": "Auto respawn Verzögerung in Sekunden"
+            },
+            "waypoints": {
+                "name": "Wegpunkt Optionen",
+                "title": {
+                    "name": "Name",
+                    "description": "Todespunkt-Wegpunkte werden mit diesem Namen erstellt.\nDu kannst §b{date} §rbenutzen, um deinen Todeszeitpunkt zum Namen hinzuzufügen"
+                },
+                "type": {
+                    "name": "Wegpunkt Dauer",
+                    "description": "Wie lange die Wegpunkte existieren sollen",
+                    "entries": {
+                        "permanent": "Permanent",
+                        "serverSession": "Serversitzung",
+                        "addonManaged": "Spielsitzung"
+                    }
+                },
+                "color": {
+                    "name": "Farbe",
+                    "description": "Die Leuchtfeuer-Farbe des Todeswegpunkts"
+                }
             }
         },
         "command": {
@@ -15,6 +49,22 @@
                 "notEnabled": "Das Waypoints Addon ist nicht aktiviert!",
                 "success": "Wegpunkt erfolgreich erstellt!"
             }
+        },
+        "onDeath": {
+            "message": "Dein Todesort wurde gespeichert!",
+            "hover": {
+                "teleport": "Klicke, um dich zu den Koordinaten zu teleportieren",
+                "show": "Klicke, um die Koordinaten anzuzeigen",
+                "waypoint": "Klicke, um einen Wegpunkt zu erstellen"
+            },
+            "autoRespawn": {
+                "title": "Automatischer respawn aktiviert",
+                "description": "Du wirst automatisch in %s wiederbelebt!",
+                "cancel": "Abbrechen"
+            }
+        },
+        "placeholders": {
+            "death_location": "Dein letzter Todesort."
         }
     }
 }
