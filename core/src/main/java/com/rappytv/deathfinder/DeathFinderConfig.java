@@ -14,6 +14,6 @@ public class DeathFinderConfig extends AddonConfig {
 
     @Override
     public ConfigProperty<Boolean> enabled() {
-        return enabled;
+        return this.enabled;
     }
 }

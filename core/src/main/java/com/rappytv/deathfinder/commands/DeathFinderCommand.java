@@ -19,14 +19,14 @@ public class DeathFinderCommand extends Command {
     public DeathFinderCommand() {
         super("deathfinder", "df");
 
-        withSubCommand(new BackCommand());
-        withSubCommand(new CoordsCommand());
-        withSubCommand(new WaypointCommand());
+        this.withSubCommand(new BackCommand());
+        this.withSubCommand(new CoordsCommand());
+        this.withSubCommand(new WaypointCommand());
     }
 
     @Override
     public boolean execute(String prefix, String[] arguments) {
-        displayMessage(
+        this.displayMessage(
             Component.empty()
                 .append(DeathFinderAddon.prefix)
                 .append(Component.translatable(
@@ -50,7 +50,7 @@ public class DeathFinderCommand extends Command {
         @Override
         public boolean execute(String prefix, String[] arguments) {
             if(DeathFinderAddon.getDeathLocation() == null) {
-                displayMessage(
+                this.displayMessage(
                     Component.empty()
                         .append(DeathFinderAddon.prefix)
                         .append(Component.translatable(
@@ -85,7 +85,7 @@ public class DeathFinderCommand extends Command {
         @Override
         public boolean execute(String prefix, String[] arguments) {
             if(DeathFinderAddon.getDeathLocation() == null) {
-                displayMessage(
+                this.displayMessage(
                     Component.empty()
                         .append(DeathFinderAddon.prefix)
                         .append(Component.translatable(
@@ -96,7 +96,7 @@ public class DeathFinderCommand extends Command {
                 return true;
             }
             DeathLocation death = DeathFinderAddon.getDeathLocation();
-            displayMessage(
+            this.displayMessage(
                 Component.empty()
                     .append(DeathFinderAddon.prefix)
                     .append(Component.translatable(
@@ -106,23 +106,23 @@ public class DeathFinderCommand extends Command {
                     .append(Component.newline())
                     .append(DeathFinderAddon.prefix)
                     .append(Component.text("X: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getX()))
+                    .append(this.formatValue(death.getX()))
                     .append(Component.newline())
                     .append(DeathFinderAddon.prefix)
                     .append(Component.text("Y: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getY()))
+                    .append(this.formatValue(death.getY()))
                     .append(Component.newline())
                     .append(DeathFinderAddon.prefix)
                     .append(Component.text("Z: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getZ()))
+                    .append(this.formatValue(death.getZ()))
                     .append(Component.newline())
                     .append(DeathFinderAddon.prefix)
                     .append(Component.text("Yaw: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getYaw()))
+                    .append(this.formatValue(death.getYaw()))
                     .append(Component.newline())
                     .append(DeathFinderAddon.prefix)
                     .append(Component.text("Pitch: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getPitch()))
+                    .append(this.formatValue(death.getPitch()))
             );
             return true;
         }
@@ -144,7 +144,7 @@ public class DeathFinderCommand extends Command {
         @Override
         public boolean execute(String prefix, String[] arguments) {
             if(DeathFinderAddon.getDeathLocation() == null) {
-                displayMessage(
+                this.displayMessage(
                     Component.empty()
                         .append(DeathFinderAddon.prefix)
                         .append(Component.translatable(
@@ -155,7 +155,7 @@ public class DeathFinderCommand extends Command {
                 return true;
             }
             if(!Laby.labyAPI().addonService().isEnabled("labyswaypoints")) {
-                displayMessage(
+                this.displayMessage(
                     Component.empty()
                         .append(DeathFinderAddon.prefix)
                         .append(Component.translatable(
@@ -178,7 +178,7 @@ public class DeathFinderCommand extends Command {
                     .build()
             );
             service.refresh();
-            displayMessage(
+            this.displayMessage(
                 Component.empty()
                     .append(DeathFinderAddon.prefix)
                     .append(Component.translatable(

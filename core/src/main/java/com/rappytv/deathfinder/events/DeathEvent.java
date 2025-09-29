@@ -13,6 +13,6 @@ public record DeathEvent(DeathLocation location) implements Event {
 
     @Override
     public @NotNull DeathLocation location() {
-        return location;
+        return this.location;
     }
 }

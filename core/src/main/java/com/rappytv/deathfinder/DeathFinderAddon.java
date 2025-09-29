@@ -20,9 +20,9 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
 
     @Override
     protected void enable() {
-        registerSettingCategory();
-        registerCommand(new DeathFinderCommand());
-        registerListener(new DeathListener(this));
+        this.registerSettingCategory();
+        this.registerCommand(new DeathFinderCommand());
+        this.registerListener(new DeathListener(this));
     }
 
     @Override

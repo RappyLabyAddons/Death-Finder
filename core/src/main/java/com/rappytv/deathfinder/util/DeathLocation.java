@@ -21,19 +21,19 @@ public class DeathLocation {
     }
 
     public double getX() {
-        return x;
+        return this.x;
     }
     public double getY() {
-        return y;
+        return this.y;
     }
     public double getZ() {
-        return z;
+        return this.z;
     }
     public double getYaw() {
-        return yaw;
+        return this.yaw;
     }
     public double getPitch() {
-        return pitch;
+        return this.pitch;
     }
 
     public void setX(double x) {
