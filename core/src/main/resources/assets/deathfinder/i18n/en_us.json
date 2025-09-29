@@ -37,9 +37,6 @@
                     "name": "Color",
                     "description": "The beacon color of death waypoint"
                 }
-            },
-            "waypointName": {
-                "name": "Waypoint name"
             }
         },
         "command": {
@@ -50,8 +47,7 @@
             },
             "waypoint": {
                 "notEnabled": "The waypoints addon is not enabled!",
-                "success": "Successfully created waypoint!",
-                "title": ""
+                "success": "Successfully created waypoint!"
             }
         },
         "onDeath": {
