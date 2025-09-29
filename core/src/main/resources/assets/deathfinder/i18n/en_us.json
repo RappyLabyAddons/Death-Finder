@@ -1,8 +1,42 @@
 {
     "deathfinder": {
         "settings": {
+            "header": {
+                "autoRespawn": {
+                    "name": "Auto respawn"
+                }
+            },
             "enabled": {
                 "name": "Enabled"
+            },
+            "autoRespawn": {
+                "name": "Automatically respawn"
+            },
+            "autoHardcoreRespawn": {
+                "name": "Automatically respawn in hardcore"
+            },
+            "autoRespawnDelay": {
+                "name": "Auto respawn delay in seconds"
+            },
+            "waypoints": {
+                "name": "Waypoint options",
+                "title": {
+                    "name": "Name",
+                    "description": "Death location waypoints will be created with this name.\nYou can use §b{date} §rto add the time you died to the name"
+                },
+                "type": {
+                    "name": "Waypoint duration",
+                    "description": "When the waypoints should expire",
+                    "entries": {
+                        "permanent": "Permanently",
+                        "serverSession": "Server session",
+                        "addonManaged": "Game session"
+                    }
+                },
+                "color": {
+                    "name": "Color",
+                    "description": "The beacon color of death waypoint"
+                }
             }
         },
         "command": {
@@ -16,11 +50,21 @@
                 "success": "Successfully created waypoint!"
             }
         },
-        "onDeath": "Your death point was saved!",
-        "hover": {
-            "teleport": "Click to teleport to coordinates!",
-            "show": "Click to show coordinates",
-            "waypoint": "Click to create a waypoint"
+        "onDeath": {
+            "message": "Your death point was saved!",
+            "hover": {
+                "teleport": "Click to teleport to coordinates",
+                "show": "Click to show coordinates",
+                "waypoint": "Click to create a waypoint"
+            },
+            "autoRespawn": {
+                "title": "Auto respawn enabled",
+                "description": "You will automatically respawn in %s seconds!",
+                "cancel": "Cancel"
+            }
+        },
+        "placeholders": {
+            "death_location": "The location of the last death."
         }
     }
 }

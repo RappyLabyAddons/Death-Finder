@@ -1,34 +1,34 @@
-package com.rappytv.deathfinder.commands;
+package com.rappytv.deathfinder.core.commands;
 
-import com.rappytv.deathfinder.DeathFinderAddon;
-import com.rappytv.deathfinder.util.DeathLocation;
+import com.rappytv.deathfinder.api.util.DeathLocation;
+import com.rappytv.deathfinder.core.DeathFinderAddon;
 import net.labymod.addons.waypoints.WaypointService;
 import net.labymod.addons.waypoints.Waypoints;
-import net.labymod.addons.waypoints.waypoint.WaypointMeta;
+import net.labymod.addons.waypoints.waypoint.WaypointBuilder;
 import net.labymod.addons.waypoints.waypoint.WaypointType;
 import net.labymod.api.Laby;
 import net.labymod.api.client.chat.command.Command;
 import net.labymod.api.client.chat.command.SubCommand;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
-import net.labymod.api.util.Color;
-import net.labymod.api.util.math.vector.FloatVector3;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 
 public class DeathFinderCommand extends Command {
 
-    public DeathFinderCommand() {
+    public DeathFinderCommand(DeathFinderAddon addon) {
         super("deathfinder", "df");
 
-        withSubCommand(new BackCommand());
-        withSubCommand(new CoordsCommand());
-        withSubCommand(new WaypointCommand());
+        this.withSubCommand(new BackCommand());
+        this.withSubCommand(new CoordsCommand());
+        this.withSubCommand(new WaypointCommand(addon));
     }
 
     @Override
     public boolean execute(String prefix, String[] arguments) {
-        displayMessage(
+        this.displayMessage(
             Component.empty()
-                .append(DeathFinderAddon.prefix)
+                .append(DeathFinderAddon.prefix())
                 .append(Component.translatable(
                     "deathfinder.command.usage",
                     NamedTextColor.GRAY,
@@ -49,10 +49,10 @@ public class DeathFinderCommand extends Command {
 
         @Override
         public boolean execute(String prefix, String[] arguments) {
-            if(DeathFinderAddon.getDeathLocation() == null) {
-                displayMessage(
+            if(DeathFinderAddon.references().deathManager().getLocation() == null) {
+                this.displayMessage(
                     Component.empty()
-                        .append(DeathFinderAddon.prefix)
+                        .append(DeathFinderAddon.prefix())
                         .append(Component.translatable(
                             "deathfinder.command.noSavedPoint",
                             NamedTextColor.RED
@@ -60,7 +60,7 @@ public class DeathFinderCommand extends Command {
                 );
                 return true;
             }
-            DeathLocation death = DeathFinderAddon.getDeathLocation();
+            DeathLocation death = DeathFinderAddon.references().deathManager().getLocation();
             Laby.references().chatExecutor().chat(
                 String.format(
                     "/tp @p %s %s %s %s %s",
@@ -78,16 +78,18 @@ public class DeathFinderCommand extends Command {
 
     private static class CoordsCommand extends SubCommand {
 
+        private final DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
         public CoordsCommand() {
             super("coords");
         }
 
         @Override
         public boolean execute(String prefix, String[] arguments) {
-            if(DeathFinderAddon.getDeathLocation() == null) {
-                displayMessage(
+            if(DeathFinderAddon.references().deathManager().getLocation() == null) {
+                this.displayMessage(
                     Component.empty()
-                        .append(DeathFinderAddon.prefix)
+                        .append(DeathFinderAddon.prefix())
                         .append(Component.translatable(
                             "deathfinder.command.noSavedPoint",
                             NamedTextColor.RED
@@ -95,41 +97,41 @@ public class DeathFinderCommand extends Command {
                 );
                 return true;
             }
-            DeathLocation death = DeathFinderAddon.getDeathLocation();
-            displayMessage(
+            DeathLocation death = DeathFinderAddon.references().deathManager().getLocation();
+            this.displayMessage(
                 Component.empty()
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.translatable(
                         "deathfinder.command.coords.success",
                         NamedTextColor.YELLOW
                     ))
                     .append(Component.newline())
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.text("X: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getX()))
+                    .append(this.formatValue(death.getX()))
                     .append(Component.newline())
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.text("Y: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getY()))
+                    .append(this.formatValue(death.getY()))
                     .append(Component.newline())
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.text("Z: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getZ()))
+                    .append(this.formatValue(death.getZ()))
                     .append(Component.newline())
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.text("Yaw: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getYaw()))
+                    .append(this.formatValue(death.getYaw()))
                     .append(Component.newline())
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.text("Pitch: ", NamedTextColor.GREEN))
-                    .append(formatValue(death.getPitch()))
+                    .append(this.formatValue(death.getPitch()))
             );
             return true;
         }
 
         private Component formatValue(double value) {
             return Component.text(
-                String.format(java.util.Locale.US,"%.2f", value),
+                this.decimalFormat.format(value),
                 NamedTextColor.AQUA
             );
         }
@@ -137,16 +139,21 @@ public class DeathFinderCommand extends Command {
 
     private static class WaypointCommand extends SubCommand {
 
-        public WaypointCommand() {
+        private final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        private final DeathFinderAddon addon;
+
+        public WaypointCommand(DeathFinderAddon addon) {
             super("waypoint");
+
+            this.addon = addon;
         }
 
         @Override
         public boolean execute(String prefix, String[] arguments) {
-            if(DeathFinderAddon.getDeathLocation() == null) {
-                displayMessage(
+            if(DeathFinderAddon.references().deathManager().getLocation() == null) {
+                this.displayMessage(
                     Component.empty()
-                        .append(DeathFinderAddon.prefix)
+                        .append(DeathFinderAddon.prefix())
                         .append(Component.translatable(
                             "deathfinder.command.noSavedPoint",
                             NamedTextColor.RED
@@ -155,9 +162,9 @@ public class DeathFinderCommand extends Command {
                 return true;
             }
             if(!Laby.labyAPI().addonService().isEnabled("labyswaypoints")) {
-                displayMessage(
+                this.displayMessage(
                     Component.empty()
-                        .append(DeathFinderAddon.prefix)
+                        .append(DeathFinderAddon.prefix())
                         .append(Component.translatable(
                             "deathfinder.command.waypoint.notEnabled",
                             NamedTextColor.RED
@@ -165,30 +172,39 @@ public class DeathFinderCommand extends Command {
                 );
                 return true;
             }
-            WaypointService service = Waypoints.getReferences().waypointService();
-            DeathLocation death = DeathFinderAddon.getDeathLocation();
-            service.addWaypoint(new WaypointMeta(
-                Component.text("Death location"),
-                Color.of("#5e17eb"),
-                WaypointType.PERMANENT,
-                new FloatVector3((float) death.getX(), (float) death.getY(), (float) death.getZ()),
-                true,
-                service.actualWorld(),
-                service.actualServer(),
-                service.actualDimension() != null
-                    ? service.actualDimension()
-                    : "labymod:unknown"
-            ));
-            service.refreshWaypoints();
-            displayMessage(
+            WaypointService service = Waypoints.references().waypointService();
+            DeathLocation death = DeathFinderAddon.references().deathManager().getLocation();
+            service.add(
+                WaypointBuilder.create()
+                    .title(Component.text(this.getWaypointName()))
+                    .type(this.getWaypointType())
+                    .location(death.toDoubleVector3())
+                    .color(this.addon.configuration().waypoints().color().get())
+                    .applyCurrentContext()
+                    .dimension(death.getDimension())
+                    .build()
+            );
+            service.refresh();
+            this.displayMessage(
                 Component.empty()
-                    .append(DeathFinderAddon.prefix)
+                    .append(DeathFinderAddon.prefix())
                     .append(Component.translatable(
                         "deathfinder.command.waypoint.success",
                         NamedTextColor.GREEN
                     ))
             );
             return true;
+        }
+
+        private String getWaypointName() {
+            return this.addon.configuration().waypoints().title().get().replace(
+                "{date}",
+                this.format.format(DeathFinderAddon.references().deathManager().getLocation().getTimestamp())
+            );
+        }
+
+        private WaypointType getWaypointType() {
+            return WaypointType.valueOf(this.addon.configuration().waypoints().type().get().name());
         }
     }
 }
