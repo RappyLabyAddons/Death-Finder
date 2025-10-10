@@ -15,7 +15,7 @@ labyMod {
         displayName = "Death Finder"
         author = "RappyTV"
         description = "This addon saves your last death point, so you can find your items again."
-        minecraftVersion = "1.8<1.21.9"
+        minecraftVersion = "1.8<1.21.10"
         version = rootProject.version.toString()
 
         addon("labyswaypoints", true)
