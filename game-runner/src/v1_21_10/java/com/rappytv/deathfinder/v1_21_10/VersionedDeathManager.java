@@ -1,4 +1,4 @@
-package com.rappytv.deathfinder.v1_21_9;
+package com.rappytv.deathfinder.v1_21_10;
 
 import com.rappytv.deathfinder.api.util.DeathManager;
 import net.labymod.api.models.Implements;
