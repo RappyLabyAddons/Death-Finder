@@ -27,7 +27,7 @@ public class DeathFinderAddon extends LabyAddon<DeathFinderConfig> {
     protected void preConfigurationLoad() {
         Laby.references().revisionRegistry().register(new SimpleRevision(
             "deathfinder",
-            new SemanticVersion("1.1.1"),
+            new SemanticVersion(1, 1, 1),
             "2025-09-29"
         ));
     }
