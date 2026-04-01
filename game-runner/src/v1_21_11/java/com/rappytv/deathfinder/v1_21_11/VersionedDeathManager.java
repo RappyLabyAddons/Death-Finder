@@ -1,10 +1,10 @@
-package com.rappytv.deathfinder.v1_20_5;
+package com.rappytv.deathfinder.v1_21_11;
 
 import com.rappytv.deathfinder.api.util.DeathManager;
+import javax.inject.Singleton;
 import net.labymod.api.models.Implements;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import javax.inject.Singleton;
 
 @Singleton
 @Implements(DeathManager.class)
